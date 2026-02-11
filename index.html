@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Pro - Professional Web Dasturchi. Sayt va Bot yaratish xizmatlari.">
+    <meta name="keywords" content="Web Pro, web sayt, telegram bot, dasturchi, seo">
+    <meta name="author" content="Web Pro">
+    <title>Web Pro | Sayt va Bot Yaratish</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS O'ZGARUVCHILARI --- */
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --accent-color: #06b6d4;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+        }
+
+        /* --- UMUMIY SOZLAMALAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Tugmalar */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background: var(--gradient);
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            min-width: 160px;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        /* ANIMATSIYALI LOGO */
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(to bottom, #eff6ff, #ffffff);
+            display: flex;
+            align-items: center;
+            min-height: 90vh;
+            overflow: hidden; /* 3D elementlar chiqib ketmasligi uchun */
+            perspective: 1000px; /* 3D chuqurlik */
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero-gradient-text {
+            display: inline-block;
+            background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* --- 3D ANIMATION CONTAINER --- */
+        .hero-image {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+        }
+
+        /* 3D Karta (Asosiy panel) */
+        .card-3d {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.1s ease-out; /* Sichqoncha tezligida javob berish */
+            transform-style: preserve-3d;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            z-index: 10;
+        }
+
+        .card-3d i {
+            font-size: 4rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            transform: translateZ(50px); /* Ikonka oldinga chiqib turadi */
+        }
+
+        .card-3d h3 {
+            font-size: 1.5rem;
+            transform: translateZ(30px);
+        }
+
+        /* Aylanib yuruvchi elementlar */
+        .floating-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.1s ease-out;
+        }
+
+        .icon-1 { top: -20px; left: 0; color: #ec4899; transform: translateZ(60px); }
+        .icon-2 { bottom: -30px; right: 20px; color: #06b6d4; transform: translateZ(80px); }
+        .icon-3 { top: 50%; right: -40px; color: #8b5cf6; transform: translateZ(40px); }
+        .icon-4 { bottom: 20px; left: -30px; color: #10b981; transform: translateZ(50px); }
+
+        /* --- XIZMATLAR --- */
+        .services {
+            background-color: var(--bg-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .pricing-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .features-list {
+            margin: 20px 0 30px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .features-list i {
+            color: #10b981;
+            margin-right: 10px;
+        }
+
+        /* --- FEATURES --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            padding: 30px;
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .feature-box i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: -webkit-linear-gradient(var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 60px 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .social-links {
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            transition: background 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        .copyright {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                height: 300px; /* Mobil qurilmada balandlikni kamaytiramiz */
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Web Pro</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Bosh sahifa</a></li>
+                    <li><a href="#services">Xizmatlar</a></li>
+                    <li><a href="#features">Afzalliklar</a></li>
+                    <li><a href="#contact">Aloqa</a></li>
+                </ul>
+                <a href="#contact" class="btn" style="display: none; @media(min-width: 768px){display:inline-flex;}">Buyurtma berish</a>
+                <div class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1><span class="hero-gradient-text">Web Pro</span> <br>Zamonaviy Web Sahifa</h1>
+                <p>Sizning biznesingiz uchun professional veb-sayt va Telegram botlarni yarataman. SEO optimizatsiyasi bilan birga.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">Narxlarni Ko'rish</a>
+                    <a href="tel:+998992048314" class="btn btn-outline">
+                        <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> Bog'lanish (+99899 204 83 14)
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 3D Animation Area -->
+            <div class="hero-image" id="heroImage">
+                <div class="card-3d">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Development</h3>
+                </div>
+                <!-- Qo'shimcha elementlar -->
+                <div class="floating-icon icon-1"><i class="fab fa-html5"></i></div>
+                <div class="floating-icon icon-2"><i class="fab fa-css3-alt"></i></div>
+                <div class="floating-icon icon-3"><i class="fab fa-js"></i></div>
+                <div class="floating-icon icon-4"><i class="fab fa-telegram-plane"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Xizmatlar va Narxlar</h2>
+                <p>Sifatli va arzon dasturchilik xizmatlari. Har bir loyiha uchun individual yondashuv.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Web Sahifa -->
+                <div class="pricing-card">
+                    <div class="pricing-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Sahifa</h3>
+                    <p class="price">500 000 <span>so'mdan</span></p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> SEO (Google topilishi)</li>
+                        <li><i class="fas fa-check-circle"></i> Mobil qurilmalarga mos</li>
+                        <li><i class="fas fa-check-circle"></i> Tezkor ishlash</li>
+                        <li><i class="fas fa-check-circle"></i> QR kod generatsiyasi</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-full">Buyurtma berish</a>
+                </div>
+
+                <!-- Telegram Bot -->
+                <div class="pricing-card">
+                    <div class="pricing-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </div>
+                    <h3>Telegram Bot</h3>
+                    <p class="price">800 000 <span>so'mdan</span></p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Avtomatlashtirish</li>
+                        <li><i class="fas fa-check-circle"></i> To'lov tizimlari</li>
+                        <li><i class="fas fa-check-circle"></i> Admin panel</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 ishlashi</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-full">Buyurtma berish</a>
+                </div>
+
+                <!-- Kompleks -->
+                <div class="pricing-card">
+                    <div class="pricing-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Kompleks</h3>
+                    <p class="price">Kelishilgan</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Sayt + Bot + Domen</li>
+                        <li><i class="fas fa-check-circle"></i> To'liq branding</li>
+                        <li><i class="fas fa-check-circle"></i> Texnik qo'llab-quvvatlash</li>
+                        <li><i class="fas fa-check-circle"></i> Bepulsiz yangilashlar</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-full">Muzokaralar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nega Web Pro?</h2>
+                <p>Biz sifat, tezlik va natijaga kafolat beramiz.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Optimizatsiya</h3>
+                    <p>Saytingiz Google'da birinchi o‘rinlarda chiqadi.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-qrcode"></i>
+                    <h3>QR Kod</h3>
+                    <p>Har qanday sahifani QR kodga o'zgartiramiz.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive</h3>
+                    <p>Barcha qurilmalarda mukammal ko'rinadi.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-headset"></i>
+                    <h3>Qo'llab-quvvatlash</h3>
+                    <p>24/7 texnik yordam va maslahatlar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bog'lanish</h2>
+                <p>Yangi loyiha boshlash uchun murojaat qiling.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Aloqa Ma'lumotlari</h3>
+                    <p style="margin-bottom: 30px; color: var(--text-light);">
+                        Xizmatlarimiz haqida batafsil ma'lumot olish uchun quyidagi manzillar orqali biz bilan bog'laning.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-telegram-plane"></i></div>
+                        <div>
+                            <h4>Telegram</h4>
+                            <p><a href="https://t.me/samir_f4" target="_blank">@samir_f4</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+998992048314">+998 99 204 83 14</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@webpro.uz</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="telegramForm" onsubmit="sendTelegram(event)">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-control" placeholder="Ismingiz" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" class="form-control" placeholder="Telefon raqamingiz" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" class="form-control" placeholder="Xabaringiz..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-full">Yuborish</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Web <span>Pro</span></div>
+            <div class="social-links">
+                <a href="https://t.me/samir_f4" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="copyright">&copy; 2023 Web Pro. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Telegram Integration & 3D Animation Logic -->
+    <script>
+        const BOT_TOKEN = '8363658905:AAFyFe3uqbn1jcac4sJQOHnxSGtkMwAuW20';
+        const CHAT_ID = '5588598964';
+
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        async function sendTelegram(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            const btn = event.target.querySelector('button');
+            const originalText = btn.innerText;
+
+            const text = `📢 *Yangi Buyurtma!*\n\n` +
+                         `👤 *Ismi:* ${name}\n` +
+                         `📱 *Telefon:* ${phone}\n` +
+                         `💬 *Xabar:* ${message}\n\n` +
+                         `🌐 *Manba:* Web Pro Sayti`;
+
+            btn.innerText = "Yuborilmoqda...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: text,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                if (response.ok) {
+                    alert("Xabaringiz muvaffaqiyatli yuborildi! Tez orada bog'lanamiz.");
+                    document.getElementById('telegramForm').reset();
+                } else {
+                    alert("Xatolik yuz berdi. Iltimos, keyinroq urinib ko'ring.");
+                }
+            } catch (error) {
+                console.error('Xato:', error);
+                alert("Internet bilan aloqa yo'q.");
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // --- 3D MOUSE INTERACTION SCRIPT ---
+        const heroSection = document.getElementById('hero');
+        const card = document.querySelector('.card-3d');
+        const icons = document.querySelectorAll('.floating-icon');
+
+        heroSection.addEventListener('mousemove', (e) => {
+            // Sichqoncha o'rnini hisoblash
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            
+            // Asosiy kartani qimirlatish
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            
+            // Kichik elementlarni turlicha qimirlatish
+            icons.forEach((icon, index) => {
+                const depth = (index + 1) * 2; // Har bir element chuqurligi
+                const xMove = (window.innerWidth / 2 - e.pageX) / depth;
+                const yMove = (window.innerHeight / 2 - e.pageY) / depth;
+                icon.style.transform = `translateX(${xMove}px) translateY(${yMove}px) translateZ(${50 + index * 10}px)`;
+            });
+        });
+
+        // Sichqoncha chiqib ketganda joyiga qaytarish
+        heroSection.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            icons.forEach((icon, index) => {
+                icon.style.transform = `translateX(0) translateY(0) translateZ(${50 + index * 10}px)`;
+            });
+        });
+
+        window.onload = function() {
+            console.log("Web Pro sayti ishga tushdi.");
+        };
+    </script>
+</body>
+</html>
