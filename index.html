@@ -51,7 +51,7 @@
             --bg-light: #f9fafb;
             --bg-white: #ffffff;
             --gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
-            --ad-bg: #fff1f2; /* Reklama uchun och qizil fon */
+            --ad-bg: #fff1f2;
             --ad-text: #9f1239;
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --radius: 16px;
@@ -322,14 +322,14 @@
         }
         .ad-btn:hover { transform: scale(1.05); }
 
-        /* REKLAMA ADMIN PANELI (BOSHQARUV UCHUN) */
+        /* REKLAMA ADMIN PANELI (Yashirin) */
         .ad-admin-panel {
             border: 2px dashed #9ca3af;
             padding: 20px;
             margin: 20px 0;
             background: #f3f4f6;
             border-radius: 12px;
-            display: none; /* Odatda yashirin bo'ladi */
+            display: none; /* Odatda yashirin */
         }
         
         .ad-admin-panel.active { display: block; }
@@ -346,14 +346,20 @@
             font-family: inherit;
         }
 
+        /* MAXFIY ADMIN TUGMASI (Nuqta ko'rinishida) */
         .toggle-admin {
-            font-size: 0.8rem;
-            color: #6b7280;
-            text-align: center;
-            margin-top: 5px;
+            width: 6px;
+            height: 6px;
+            background-color: #e5e7eb; /* Juda och rang */
+            border-radius: 50%;
+            margin: 10px auto;
             cursor: pointer;
-            text-decoration: underline;
+            transition: background-color 0.3s;
+            display: block;
         }
+
+        .toggle-admin:hover { background-color: var(--primary-color); }
+
 
         /* --- XIZMATLAR --- */
         .services { background-color: var(--bg-light); }
@@ -536,8 +542,10 @@
                 </a>
             </div>
 
-            <!-- REKLAMA BOSHQARUV PANELI (Admin) -->
-            <div class="toggle-admin" onclick="toggleAdAdmin()">Reklamani o'zgartirish (Admin)</div>
+            <!-- MAXFIY ADMIN TUGMASI (Faqat bitta nuqta) -->
+            <div class="toggle-admin" onclick="toggleAdAdmin()" title="Admin Panel"></div>
+            
+            <!-- REKLAMA BOSHQARUV PANELI (Parol bilan himoyalangan) -->
             <div class="ad-admin-panel" id="adAdminPanel">
                 <h4>Reklama sozlamalari</h4>
                 <div class="form-row">
@@ -552,7 +560,8 @@
                     <label>Havola (Link):</label>
                     <input type="text" id="inputAdLink" value="https://t.me/samir_f4">
                 </div>
-                <button class="btn" onclick="updateAd()">Saqlash</button>
+                <button class="btn" onclick="saveAd()">Saqlash</button>
+                <button class="btn btn-outline" onclick="resetAd()" style="margin-left: 10px;">Standartga qaytarish</button>
             </div>
         </div>
 
@@ -717,31 +726,74 @@
         const BOT_TOKEN = '8363658905:AAFyFe3uqbn1jcac4sJQOHnxSGtkMwAuW20';
         const CHAT_ID = '5588598964';
 
-        // --- REKLAMA BOSHQARUV LOGIC ---
+        // --- REKLAMA BOSHQARUV LOGIC (LocalStorage bilan) ---
         
-        // 1. Reklama panelini ochish/yopish
+        // 1. Sahifa yuklanganda LocalStorage'dan ma'lumotlarni o'qish
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedAd = localStorage.getItem('webProAd');
+            
+            if (savedAd) {
+                const adData = JSON.parse(savedAd);
+                document.getElementById('adTitle').innerText = adData.title;
+                document.getElementById('adDesc').innerText = adData.desc;
+                document.getElementById('adLink').href = adData.link;
+                
+                // Input maydonlarini ham to'ldirish
+                document.getElementById('inputAdTitle').value = adData.title;
+                document.getElementById('inputAdDesc').value = adData.desc;
+                document.getElementById('inputAdLink').value = adData.link;
+            }
+        });
+
+        // Admin panelni ochish (Parol so'raydi)
         function toggleAdAdmin() {
-            const panel = document.getElementById('adAdminPanel');
-            if (panel.style.display === 'block') {
-                panel.style.display = 'none';
+            const adminPassword = "1234"; 
+            
+            const inputPassword = prompt("Admin parolini kiriting:");
+
+            if (inputPassword === adminPassword) {
+                const panel = document.getElementById('adAdminPanel');
+                if (panel.style.display === 'block') {
+                    panel.style.display = 'none';
+                } else {
+                    panel.style.display = 'block';
+                }
             } else {
-                panel.style.display = 'block';
+                alert("Noto'g'ri parol!");
             }
         }
 
-        // 2. Reklamani yangilash
-        function updateAd() {
+        // Reklamani saqlash (LocalStorage'ga yozish)
+        function saveAd() {
             const title = document.getElementById('inputAdTitle').value;
             const desc = document.getElementById('inputAdDesc').value;
             const link = document.getElementById('inputAdLink').value;
 
-            // Sahifadagi elementlarni yangilash
+            // Ma'lumotlarni obyektga yig'ish
+            const adData = {
+                title: title,
+                desc: desc,
+                link: link
+            };
+
+            // LocalStorage'ga saqlash (JSON formatida)
+            localStorage.setItem('webProAd', JSON.stringify(adData));
+
+            // Sahifadagi elementlarni darhol yangilash
             document.getElementById('adTitle').innerText = title;
             document.getElementById('adDesc').innerText = desc;
             document.getElementById('adLink').href = link;
 
-            alert("Reklama muvaffaqiyatli yangilandi!");
-            document.getElementById('adAdminPanel').style.display = 'none'; // Panelni yopish
+            alert("Reklama saqlab qo'yildi! Endi sahifa yangilansa ham reklama o'zgarmaydi.");
+            document.getElementById('adAdminPanel').style.display = 'none';
+        }
+
+        // Reklamani standart holatga qaytarish
+        function resetAd() {
+            if(confirm("Haqiqatan ham reklamani standart holatga qaytarmoqchimisiz?")) {
+                localStorage.removeItem('webProAd');
+                location.reload();
+            }
         }
 
         // --- OTHER JS ---
