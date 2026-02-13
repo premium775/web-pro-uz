@@ -215,7 +215,7 @@
         .hero-text p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 35px; }
         .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
 
-        /* ---3D ANIMATION --- */
+        /* --- ANIMATED SLIDER CARD --- */
         .hero-image {
             position: relative;
             width: 100%;
@@ -237,24 +237,62 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: transform 0.1s ease-out;
+            transition: transform 0.1s ease-out, background 0.5s ease;
             transform-style: preserve-3d;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.6);
             z-index: 10;
+            user-select: none; /* Matnni tanlab bo'lmasligi uchun */
+            cursor: pointer;
         }
 
-        .card-3d i {
+        /* Karta ichidagi kontent */
+        .slider-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translateZ(50px);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .slider-content.fade-out {
+            opacity: 0;
+        }
+
+        .card-icon {
             font-size: 4.5rem;
+            margin-bottom: 15px;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-            transform: translateZ(60px);
+            /* Ikona rangini ham animatsiya qilish uchun */
+            transition: all 0.5s ease;
         }
 
-        .card-3d h3 { font-size: 1.6rem; transform: translateZ(40px); font-weight: 700; }
+        .card-title {
+            font-size: 1.6rem; 
+            font-weight: 700; 
+            color: var(--text-main);
+            text-align: center;
+        }
+        
+        /* Hover/Pause holatidagi ko'rsatkich */
+        .pause-indicator {
+            position: absolute;
+            bottom: 15px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            opacity: 0;
+            transition: opacity 0.3s;
+            transform: translateZ(60px);
+        }
+        
+        .card-3d:hover .pause-indicator, .card-3d:active .pause-indicator {
+            opacity: 1;
+        }
 
+        /* Qo'shimcha elementlar */
         .floating-icon {
             position: absolute;
             width: 70px;
@@ -405,13 +443,13 @@
         .contact-icon {
             width: 50px; height: 50px; background: #eff6ff; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: var(--primary-color); font-size:1.2rem; margin-right: 15px; flex-shrink: 0;
+            color: var(--primary-color); font-size: 1.2rem; margin-right: 15px; flex-shrink: 0;
         }
-        .contact-form { flex:1; min-width: 300px; }
+        .contact-form { flex: 1; min-width: 300px; }
         .form-group { margin-bottom: 20px; }
         .form-control {
             width: 100%; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px;
-            font-family: inherit; font-size:1rem; transition: border-color 0.3s;
+            font-family: inherit; font-size: 1rem; transition: border-color 0.3s;
         }
         .form-control:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
 
@@ -500,10 +538,14 @@
                     </div>
                 </div>
                 
+                <!-- ANIMATED SLIDER CARD -->
                 <div class="hero-image" id="heroImage">
-                    <div class="card-3d">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Web Development</h3>
+                    <div class="card-3d" id="card3d">
+                        <div class="slider-content" id="sliderContent">
+                            <i class="fas fa-laptop-code card-icon" id="cardIcon"></i>
+                            <h3 class="card-title" id="cardTitle">Web Development</h3>
+                        </div>
+                        <span class="pause-indicator">To'xtatish uchun bosing</span>
                     </div>
                     <div class="floating-icon icon-1"><i class="fab fa-html5"></i></div>
                     <div class="floating-icon icon-2"><i class="fab fa-css3-alt"></i></div>
@@ -719,10 +761,80 @@
         const BOT_TOKEN = '8363658905:AAFyFe3uqbn1jcac4sJQOHnxSGtkMwAuW20';
         const CHAT_ID = '5588598964';
 
-        // --- 1. XIZMATLAR (Asosiy va Qo'shilganlar) ---
+        // --- 1. SLIDER ANIMATION DATA ---
+        const slides = [
+            { title: "Web Sahifa", icon: "fas fa-laptop-code", color: "#2563eb" },
+            { title: "Telegram Bot", icon: "fab fa-telegram-plane", color: "#0088cc" },
+            { title: "SEO Optimizatsiya", icon: "fas fa-search", color: "#10b981" },
+            { title: "Mobil Dastur", icon: "fas fa-mobile-alt", color: "#f59e0b" },
+            { title: "Dizayn", icon: "fas fa-paint-brush", color: "#ec4899" }
+        ];
+
+        let currentSlide = 0;
+        let sliderInterval;
+        let isPaused = false;
+
+        // --- 2. SLIDER LOGIC ---
+        function startSlider() {
+            const card = document.getElementById('card3d');
+            const titleEl = document.getElementById('cardTitle');
+            const iconEl = document.getElementById('cardIcon');
+            const contentEl = document.getElementById('sliderContent');
+
+            // Touch / Mouse start events (Boshqarish uchun)
+            card.addEventListener('mousedown', pauseSlider);
+            card.addEventListener('touchstart', pauseSlider);
+            
+            // Touch / Mouse end events
+            card.addEventListener('mouseup', resumeSlider);
+            card.addEventListener('mouseleave', resumeSlider);
+            card.addEventListener('touchend', resumeSlider);
+
+            sliderInterval = setInterval(() => {
+                if (!isPaused) {
+                    changeSlide();
+                }
+            }, 2000); // Har 2 soniyada o'zgaradi
+        }
+
+        function changeSlide() {
+            const contentEl = document.getElementById('sliderContent');
+            const titleEl = document.getElementById('cardTitle');
+            const iconEl = document.getElementById('cardIcon');
+
+            // 1. Fade out (Yashirish)
+            contentEl.classList.add('fade-out');
+
+            setTimeout(() => {
+                // 2. Ma'lumotlarni o'zgartirish
+                currentSlide = (currentSlide + 1) % slides.length;
+                const slideData = slides[currentSlide];
+
+                titleEl.innerText = slideData.title;
+                iconEl.className = `${slideData.icon} card-icon`;
+                
+                // Ikona rangini o'zgartirish
+                iconEl.style.background = `linear-gradient(to right, ${slideData.color}, #06b6d4)`;
+                iconEl.style.webkitBackgroundClip = 'text';
+                iconEl.style.webkitTextFillColor = 'transparent';
+
+                // 3. Fade in (Ko'rsatish)
+                contentEl.classList.remove('fade-out');
+            }, 300); // 300ms kutish (animatsiya tugashini kutish)
+        }
+
+        function pauseSlider() {
+            isPaused = true;
+        }
+
+        function resumeSlider() {
+            isPaused = false;
+        }
+
+        // --- 3. XIZMATLAR (Asosiy va Qo'shilganlar) ---
         let allServices = [
             {
-                id:1,
+                id: 1,
                 title: "Web Sahifa",
                 price: "500 000 so'mdan",
                 icon: "fas fa-laptop-code",
@@ -735,7 +847,7 @@
                 isCustom: false
             },
             {
-                id:2,
+                id: 2,
                 title: "Telegram Bot",
                 price: "800 000 so'mdan",
                 icon: "fab fa-telegram-plane",
@@ -748,7 +860,7 @@
                 isCustom: false
             },
             {
-                id:3,
+                id: 3,
                 title: "Kompleks",
                 price: "Kelishilgan",
                 icon: "fas fa-layer-group",
@@ -764,6 +876,7 @@
 
         // --- INIT ---
         window.addEventListener('DOMContentLoaded', () => {
+            startSlider(); // Animatsiyani ishga tushirish
             loadAd();
             loadCustomServices();
             renderServices();
@@ -899,7 +1012,7 @@
 
         // --- ADMIN PANEL UI ---
         function toggleAdminPanel() {
-            const adminPassword = "55554"; // Oddiy parol, xavfsizlik uchun emas
+            const adminPassword = "1234";
             const inputPassword = prompt("Admin parolini kiriting:");
             if (inputPassword === adminPassword) {
                 const panel = document.getElementById('adminPanel');
@@ -991,7 +1104,7 @@
             }
         }
 
-        // --- 3D ANIMATION LOGIC ---
+        // --- 3D ANIMATION LOGIC (Parallax) ---
         const heroSection = document.getElementById('hero');
         const card = document.querySelector('.card-3d');
         const icons = document.querySelectorAll('.floating-icon');
