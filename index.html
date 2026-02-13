@@ -104,6 +104,9 @@
         }
 
         .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3); }
+        .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
+        .btn-danger { background: #ef4444; box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2); }
+        .btn-danger:hover { box-shadow: 0 10px 15px rgba(239, 68, 68, 0.3); background: #dc2626; }
 
         .btn-outline {
             background: transparent;
@@ -212,7 +215,7 @@
         .hero-text p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 35px; }
         .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
 
-        /* --- 3D ANIMATION --- */
+        /* ---3D ANIMATION --- */
         .hero-image {
             position: relative;
             width: 100%;
@@ -322,8 +325,8 @@
         }
         .ad-btn:hover { transform: scale(1.05); }
 
-        /* REKLAMA ADMIN PANELI (Yashirin) */
-        .ad-admin-panel {
+        /* --- ADMIN PANELI STILI --- */
+        .admin-section {
             border: 2px dashed #9ca3af;
             padding: 20px;
             margin: 20px 0;
@@ -332,62 +335,46 @@
             display: none; /* Odatda yashirin */
         }
         
-        .ad-admin-panel.active { display: block; }
-
-        .ad-admin-panel h4 { margin-bottom: 15px; color: #374151; }
+        .admin-section.active { display: block; }
+        .admin-section h4 { margin-bottom: 15px; color: #374151; border-bottom: 1px solid #d1d5db; padding-bottom: 10px; }
+        .admin-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+        .admin-tab-btn {
+            padding: 8px 16px; background: #e5e7eb; border: none; border-radius: 6px; cursor: pointer;
+        }
+        .admin-tab-btn.active { background: var(--primary-color); color: white; }
         
         .form-row { margin-bottom: 15px; }
         .form-row label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; }
-        .form-row input, .form-row textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-family: inherit;
+        .form-row input, .form-row textarea, .form-row select {
+            width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit;
+        }
+        
+        .service-list-item {
+            background: white; padding: 10px; margin-bottom: 10px; border-radius: 6px;
+            display: flex; justify-content: space-between; align-items: center; border: 1px solid #e5e7eb;
         }
 
-        /* MAXFIY ADMIN TUGMASI (Nuqta ko'rinishida) */
+        /* MAXFIY ADMIN TUGMASI */
         .toggle-admin {
-            width: 6px;
-            height: 6px;
-            background-color: #e5e7eb; /* Juda och rang */
-            border-radius: 50%;
-            margin: 10px auto;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: block;
+            width: 6px; height: 6px; background-color: #e5e7eb; border-radius: 50%;
+            margin: 10px auto; cursor: pointer; transition: background-color 0.3s; display: block;
         }
-
         .toggle-admin:hover { background-color: var(--primary-color); }
-
 
         /* --- XIZMATLAR --- */
         .services { background-color: var(--bg-light); }
-
         .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
 
         .pricing-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #e5e7eb;
-            display: flex;
-            flex-direction: column;
+            background: white; padding: 40px 30px; border-radius: var(--radius);
+            box-shadow: var(--shadow); text-align: center; transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e5e7eb; display: flex; flex-direction: column;
         }
-
         .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-color);
+            transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: var(--primary-color);
         }
-
         .pricing-icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; }
         .price { font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin: 20px 0; }
         .features-list { margin: 20px 0 30px; text-align: left; flex-grow: 1; }
@@ -418,13 +405,13 @@
         .contact-icon {
             width: 50px; height: 50px; background: #eff6ff; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: var(--primary-color); font-size: 1.2rem; margin-right: 15px; flex-shrink: 0;
+            color: var(--primary-color); font-size:1.2rem; margin-right: 15px; flex-shrink: 0;
         }
-        .contact-form { flex: 1; min-width: 300px; }
+        .contact-form { flex:1; min-width: 300px; }
         .form-group { margin-bottom: 20px; }
         .form-control {
             width: 100%; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px;
-            font-family: inherit; font-size: 1rem; transition: border-color 0.3s;
+            font-family: inherit; font-size:1rem; transition: border-color 0.3s;
         }
         .form-control:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
 
@@ -470,7 +457,6 @@
             .overlay.active { display: block; }
             .contact-container { padding: 30px 20px; flex-direction: column; }
             section { padding: 60px 0; }
-            
             .ad-banner { flex-direction: column; text-align: center; }
             .ad-content { padding-right: 0; margin-bottom: 20px; }
             .ad-btn { width: 100%; justify-content: center; }
@@ -479,7 +465,6 @@
 </head>
 <body>
 
-    <!-- Mobil menyu overlayi -->
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
     <!-- Header -->
@@ -515,7 +500,6 @@
                     </div>
                 </div>
                 
-                <!-- 3D Animation Area -->
                 <div class="hero-image" id="heroImage">
                     <div class="card-3d">
                         <i class="fas fa-laptop-code"></i>
@@ -529,39 +513,84 @@
             </div>
         </section>
 
-        <!-- REKLAMA BANNERI (Dynamic Content) -->
+        <!-- REKLAMA & ADMIN PANEL -->
         <div class="container">
+            <!-- Reklama Banner -->
             <div class="ad-banner" id="adBanner">
                 <div class="ad-content">
                     <span class="ad-tag">Reklama / Special Offer</span>
                     <h2 class="ad-title" id="adTitle">Chegirma! 20%</h2>
-                    <p class="ad-desc" id="adDesc">Bugun buyurtma berganlar uchun Telegram bot bepul yaratiladi. E'tibor bering!</p>
+                    <p class="ad-desc" id="adDesc">Bugun buyurtma berganlar uchun Telegram bot bepul yaratiladi.</p>
                 </div>
                 <a href="#" class="ad-btn" id="adLink" target="_blank">
                     Batafsil <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
 
-            <!-- MAXFIY ADMIN TUGMASI (Faqat bitta nuqta) -->
-            <div class="toggle-admin" onclick="toggleAdAdmin()" title="Admin Panel"></div>
+            <!-- Yashirin Admin Tugmasi -->
+            <div class="toggle-admin" onclick="toggleAdminPanel()" title="Admin Panel"></div>
             
-            <!-- REKLAMA BOSHQARUV PANELI (Parol bilan himoyalangan) -->
-            <div class="ad-admin-panel" id="adAdminPanel">
-                <h4>Reklama sozlamalari</h4>
-                <div class="form-row">
-                    <label>Sarlavha (Title):</label>
-                    <input type="text" id="inputAdTitle" value="Chegirma! 20%">
+            <!-- Admin Panel (Yashirin) -->
+            <div class="admin-section" id="adminPanel">
+                <div class="admin-tabs">
+                    <button class="admin-tab-btn active" onclick="switchTab('ad')">Reklama</button>
+                    <button class="admin-tab-btn" onclick="switchTab('service')">Yangi Xizmat</button>
                 </div>
-                <div class="form-row">
-                    <label>Tavsif (Description):</label>
-                    <textarea id="inputAdDesc" rows="3">Bugun buyurtma berganlar uchun Telegram bot bepul yaratiladi. E'tibor bering!</textarea>
+
+                <!-- Reklama Bo'limi -->
+                <div id="tabAd">
+                    <h4>Reklama sozlamalari</h4>
+                    <div class="form-row">
+                        <label>Sarlavha:</label>
+                        <input type="text" id="inputAdTitle" value="Chegirma! 20%">
+                    </div>
+                    <div class="form-row">
+                        <label>Tavsif:</label>
+                        <textarea id="inputAdDesc" rows="3">Bugun buyurtma berganlar uchun Telegram bot bepul yaratiladi.</textarea>
+                    </div>
+                    <div class="form-row">
+                        <label>Havola (Link):</label>
+                        <input type="text" id="inputAdLink" value="https://t.me/samir_f4">
+                    </div>
+                    <button class="btn" onclick="saveAd()">Saqlash</button>
+                    <button class="btn btn-outline" onclick="resetAd()" style="margin-left: 10px;">Standartga qaytarish</button>
                 </div>
-                <div class="form-row">
-                    <label>Havola (Link):</label>
-                    <input type="text" id="inputAdLink" value="https://t.me/samir_f4">
+
+                <!-- Yangi Xizmat Qo'shish Bo'limi -->
+                <div id="tabService" style="display: none;">
+                    <h4>Yangi xizmat qo'shish</h4>
+                    <div class="form-row">
+                        <label>Xizmat nomi:</label>
+                        <input type="text" id="newServiceTitle" placeholder="Masalan: Logo Dizayn">
+                    </div>
+                    <div class="form-row">
+                        <label>Narxi:</label>
+                        <input type="text" id="newServicePrice" placeholder="Masalan: 200 000 so'mdan">
+                    </div>
+                    <div class="form-row">
+                        <label>Ikona (Rangini tanlang):</label>
+                        <select id="newServiceIcon">
+                            <option value="fas fa-code">Kod (Code)</option>
+                            <option value="fas fa-paint-brush">Dizayn (Brush)</option>
+                            <option value="fas fa-chart-line">Marketing (Chart)</option>
+                            <option value="fas fa-server">Server (Server)</option>
+                            <option value="fas fa-mobile-alt">Mobil App (Mobile)</option>
+                            <option value="fas fa-shield-alt">Xavfsizlik (Shield)</option>
+                            <option value="fas fa-database">Ma'lumotlar (Database)</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label>Xususiyatlar (Vergul bilan ajrating):</label>
+                        <textarea id="newServiceFeatures" rows="3" placeholder="Masalan: 3 ta variant, Tezkor yetkazib berish, Vektor format"></textarea>
+                    </div>
+                    <button class="btn" onclick="addService()">Qo'shish</button>
+                    <button class="btn btn-outline" onclick="clearServiceForm()" style="margin-left: 10px;">Tozalash</button>
+                    
+                    <h5 style="margin-top: 20px; margin-bottom: 10px; color: #374151;">Qo'shilgan xizmatlar ro'yxati:</h5>
+                    <div id="adminServiceList">
+                        <!-- JS orqali to'ldiriladi -->
+                    </div>
                 </div>
-                <button class="btn" onclick="saveAd()">Saqlash</button>
-                <button class="btn btn-outline" onclick="resetAd()" style="margin-left: 10px;">Standartga qaytarish</button>
             </div>
         </div>
 
@@ -570,48 +599,11 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Xizmatlar va Narxlar</h2>
-                    <p>Sifatli va arzon dasturchilik xizmatlari. Har bir loyiha uchun individual yondashuv.</p>
+                    <p>Sifatli va arzon dasturchilik xizmatlari.</p>
                 </div>
 
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h3>Web Sahifa</h3>
-                        <p class="price">500 000 <span>so'mdan</span></p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> SEO (Google topilishi)</li>
-                            <li><i class="fas fa-check-circle"></i> Mobil qurilmalarga mos</li>
-                            <li><i class="fas fa-check-circle"></i> Tezkor ishlash</li>
-                            <li><i class="fas fa-check-circle"></i> QR kod generatsiyasi</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-full">Buyurtma berish</a>
-                    </div>
-
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fab fa-telegram-plane"></i></div>
-                        <h3>Telegram Bot</h3>
-                        <p class="price">800 000 <span>so'mdan</span></p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> Avtomatlashtirish</li>
-                            <li><i class="fas fa-check-circle"></i> To'lov tizimlari</li>
-                            <li><i class="fas fa-check-circle"></i> Admin panel</li>
-                            <li><i class="fas fa-check-circle"></i> 24/7 ishlashi</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-full">Buyurtma berish</a>
-                    </div>
-
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-layer-group"></i></div>
-                        <h3>Kompleks</h3>
-                        <p class="price">Kelishilgan</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> Sayt + Bot + Domen</li>
-                            <li><i class="fas fa-check-circle"></i> To'liq branding</li>
-                            <li><i class="fas fa-check-circle"></i> Texnik qo'llab-quvvatlash</li>
-                            <li><i class="fas fa-check-circle"></i> Bepulsiz yangilashlar</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-full">Muzokaralar</a>
-                    </div>
+                <div class="pricing-grid" id="pricingGrid">
+                    <!-- JS yuklaydi -->
                 </div>
             </div>
         </section>
@@ -714,7 +706,8 @@
             <div class="footer-logo">Web <span>Pro</span></div>
             <div class="social-links">
                 <a href="https://t.me/samir_f4" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <!-- INSTAGRAM LINK O'ZGARTIRILDI -->
+                <a href="https://www.instagram.com/uzwebpro" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
             <p class="copyright">&copy; 2023 Web Pro. Barcha huquqlar himoyalangan.</p>
@@ -726,77 +719,258 @@
         const BOT_TOKEN = '8363658905:AAFyFe3uqbn1jcac4sJQOHnxSGtkMwAuW20';
         const CHAT_ID = '5588598964';
 
-        // --- REKLAMA BOSHQARUV LOGIC (LocalStorage bilan) ---
-        
-        // 1. Sahifa yuklanganda LocalStorage'dan ma'lumotlarni o'qish
+        // --- 1. XIZMATLAR (Asosiy va Qo'shilganlar) ---
+        let allServices = [
+            {
+                id:1,
+                title: "Web Sahifa",
+                price: "500 000 so'mdan",
+                icon: "fas fa-laptop-code",
+                features: [
+                    "SEO (Google topilishi)",
+                    "Mobil qurilmalarga mos",
+                    "Tezkor ishlash",
+                    "QR kod generatsiyasi"
+                ],
+                isCustom: false
+            },
+            {
+                id:2,
+                title: "Telegram Bot",
+                price: "800 000 so'mdan",
+                icon: "fab fa-telegram-plane",
+                features: [
+                    "Avtomatlashtirish",
+                    "To'lov tizimlari",
+                    "Admin panel",
+                    "24/7 ishlashi"
+                ],
+                isCustom: false
+            },
+            {
+                id:3,
+                title: "Kompleks",
+                price: "Kelishilgan",
+                icon: "fas fa-layer-group",
+                features: [
+                    "Sayt + Bot + Domen",
+                    "To'liq branding",
+                    "Texnik qo'llab-quvvatlash",
+                    "Bepulsiz yangilashlar"
+                ],
+                isCustom: false
+            }
+        ];
+
+        // --- INIT ---
         window.addEventListener('DOMContentLoaded', () => {
+            loadAd();
+            loadCustomServices();
+            renderServices();
+        });
+
+        // --- REKLAMA LOGIC ---
+        function loadAd() {
             const savedAd = localStorage.getItem('webProAd');
-            
             if (savedAd) {
                 const adData = JSON.parse(savedAd);
                 document.getElementById('adTitle').innerText = adData.title;
                 document.getElementById('adDesc').innerText = adData.desc;
                 document.getElementById('adLink').href = adData.link;
-                
-                // Input maydonlarini ham to'ldirish
                 document.getElementById('inputAdTitle').value = adData.title;
                 document.getElementById('inputAdDesc').value = adData.desc;
                 document.getElementById('inputAdLink').value = adData.link;
             }
-        });
-
-        // Admin panelni ochish (Parol so'raydi)
-        function toggleAdAdmin() {
-            const adminPassword = "1234"; 
-            
-            const inputPassword = prompt("Admin parolini kiriting:");
-
-            if (inputPassword === adminPassword) {
-                const panel = document.getElementById('adAdminPanel');
-                if (panel.style.display === 'block') {
-                    panel.style.display = 'none';
-                } else {
-                    panel.style.display = 'block';
-                }
-            } else {
-                alert("Noto'g'ri parol!");
-            }
         }
 
-        // Reklamani saqlash (LocalStorage'ga yozish)
         function saveAd() {
             const title = document.getElementById('inputAdTitle').value;
             const desc = document.getElementById('inputAdDesc').value;
             const link = document.getElementById('inputAdLink').value;
-
-            // Ma'lumotlarni obyektga yig'ish
-            const adData = {
-                title: title,
-                desc: desc,
-                link: link
-            };
-
-            // LocalStorage'ga saqlash (JSON formatida)
+            const adData = { title, desc, link };
             localStorage.setItem('webProAd', JSON.stringify(adData));
-
-            // Sahifadagi elementlarni darhol yangilash
+            
             document.getElementById('adTitle').innerText = title;
             document.getElementById('adDesc').innerText = desc;
             document.getElementById('adLink').href = link;
-
-            alert("Reklama saqlab qo'yildi! Endi sahifa yangilansa ham reklama o'zgarmaydi.");
-            document.getElementById('adAdminPanel').style.display = 'none';
+            alert("Reklama saqlab qo'yildi!");
         }
 
-        // Reklamani standart holatga qaytarish
         function resetAd() {
-            if(confirm("Haqiqatan ham reklamani standart holatga qaytarmoqchimisiz?")) {
+            if(confirm("Reklamani standart holatga qaytarmoqchimisiz?")) {
                 localStorage.removeItem('webProAd');
                 location.reload();
             }
         }
 
-        // --- OTHER JS ---
+        // --- YANGI XIZMAT LOGIC ---
+        function loadCustomServices() {
+            const savedServices = localStorage.getItem('webProCustomServices');
+            if (savedServices) {
+                const custom = JSON.parse(savedServices);
+                allServices = [...allServices, ...custom];
+            }
+        }
+
+        function renderServices() {
+            const grid = document.getElementById('pricingGrid');
+            const adminList = document.getElementById('adminServiceList');
+            grid.innerHTML = '';
+            adminList.innerHTML = '';
+
+            allServices.forEach(service => {
+                // 1. Sahifaga chiqarish
+                const card = document.createElement('div');
+                card.className = 'pricing-card';
+                card.innerHTML = `
+                    <div class="pricing-icon"><i class="${service.icon}"></i></div>
+                    <h3>${service.title}</h3>
+                    <p class="price">${service.price}</p>
+                    <ul class="features-list">
+                        ${service.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
+                    </ul>
+                    <button class="btn btn-full" onclick="selectService('${service.title}')">Buyurtma berish</button>
+                `;
+                grid.appendChild(card);
+
+                // 2. Admin panel ro'yxatiga chiqarish (Faqat custom)
+                if (service.isCustom) {
+                    const listItem = document.createElement('div');
+                    listItem.className = 'service-list-item';
+                    listItem.innerHTML = `
+                        <span><strong>${service.title}</strong> (${service.price})</span>
+                        <button class="btn btn-sm btn-danger" onclick="deleteService(${service.id})">O'chirish</button>
+                    `;
+                    adminList.appendChild(listItem);
+                }
+            });
+        }
+
+        function addService() {
+            const title = document.getElementById('newServiceTitle').value;
+            const price = document.getElementById('newServicePrice').value;
+            const icon = document.getElementById('newServiceIcon').value;
+            const featuresStr = document.getElementById('newServiceFeatures').value;
+
+            if (!title || !price || !featuresStr) {
+                alert("Iltimos, barcha maydonlarni to'ldiring!");
+                return;
+            }
+
+            const featuresArray = featuresStr.split(',').map(s => s.trim());
+
+            const newService = {
+                id: Date.now(),
+                title: title,
+                price: price,
+                icon: icon,
+                features: featuresArray,
+                isCustom: true
+            };
+
+            const currentSaved = localStorage.getItem('webProCustomServices');
+            let savedList = currentSaved ? JSON.parse(currentSaved) : [];
+            savedList.push(newService);
+            localStorage.setItem('webProCustomServices', JSON.stringify(savedList));
+
+            clearServiceForm();
+            alert("Xizmat muvaffaqiyatli qo'shildi!");
+            location.reload();
+        }
+
+        function deleteService(id) {
+            if(confirm("Haqiqatan ham bu xizmatni o'chirmoqchimisiz?")) {
+                const currentSaved = localStorage.getItem('webProCustomServices');
+                let savedList = currentSaved ? JSON.parse(currentSaved) : [];
+                
+                savedList = savedList.filter(s => s.id !== id);
+                localStorage.setItem('webProCustomServices', JSON.stringify(savedList));
+                
+                alert("Xizmat o'chirildi!");
+                location.reload();
+            }
+        }
+
+        function clearServiceForm() {
+            document.getElementById('newServiceTitle').value = '';
+            document.getElementById('newServicePrice').value = '';
+            document.getElementById('newServiceFeatures').value = '';
+        }
+
+        // --- ADMIN PANEL UI ---
+        function toggleAdminPanel() {
+            const adminPassword = "55554"; // Oddiy parol, xavfsizlik uchun emas
+            const inputPassword = prompt("Admin parolini kiriting:");
+            if (inputPassword === adminPassword) {
+                const panel = document.getElementById('adminPanel');
+                panel.classList.toggle('active');
+            } else {
+                alert("Noto'g'ri parol!");
+            }
+        }
+
+        function switchTab(tabName) {
+            document.getElementById('tabAd').style.display = tabName === 'ad' ? 'block' : 'none';
+            document.getElementById('tabService').style.display = tabName === 'service' ? 'block' : 'none';
+            
+            const btns = document.querySelectorAll('.admin-tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // --- FORM & NAV ---
+        let selectedService = "";
+
+        function selectService(serviceName) {
+            selectedService = serviceName;
+            document.getElementById('message').value = `Assalomu alaykum! Men "${serviceName}" xizmatiga buyurtma bermoqchiman.`;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        async function sendTelegram(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            const btn = event.target.querySelector('button');
+            const originalText = btn.innerText;
+
+            let finalText = `📢 *Yangi Buyurtma!*\n\n` +
+                         `👤 *Ismi:* ${name}\n` +
+                         `📱 *Telefon:* ${phone}\n` +
+                         `💬 *Xabar:* ${message}\n`;
+            
+            if (selectedService) {
+                finalText += `🛠 *Tanlangan Xizmat:* ${selectedService}\n`;
+            }
+            
+            finalText += `🌐 *Manba:* Web Pro Sayti`;
+
+            btn.innerText = "Yuborilmoqda...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: CHAT_ID, text: finalText, parse_mode: 'Markdown' })
+                });
+
+                if (response.ok) {
+                    alert("Xabaringiz muvaffaqiyatli yuborildi!");
+                    document.getElementById('telegramForm').reset();
+                    selectedService = "";
+                } else {
+                    alert("Xatolik yuz berdi.");
+                }
+            } catch (error) {
+                console.error('Xato:', error);
+                alert("Internet bilan aloqa yo'q.");
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
 
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
@@ -814,45 +988,6 @@
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
-            }
-        }
-
-        async function sendTelegram(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            const btn = event.target.querySelector('button');
-            const originalText = btn.innerText;
-
-            const text = `📢 *Yangi Buyurtma!*\n\n` +
-                         `👤 *Ismi:* ${name}\n` +
-                         `📱 *Telefon:* ${phone}\n` +
-                         `💬 *Xabar:* ${message}\n\n` +
-                         `🌐 *Manba:* Web Pro Sayti`;
-
-            btn.innerText = "Yuborilmoqda...";
-            btn.disabled = true;
-
-            try {
-                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'Markdown' })
-                });
-
-                if (response.ok) {
-                    alert("Xabaringiz muvaffaqiyatli yuborildi! Tez orada bog'lanamiz.");
-                    document.getElementById('telegramForm').reset();
-                } else {
-                    alert("Xatolik yuz berdi.");
-                }
-            } catch (error) {
-                console.error('Xato:', error);
-                alert("Internet bilan aloqa yo'q.");
-            } finally {
-                btn.innerText = originalText;
-                btn.disabled = false;
             }
         }
 
