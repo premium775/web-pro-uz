@@ -4,29 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- --- SEO KUCHAYTIRISH (META TAGS) --- -->
-    <title>Web Pro | Professional Web Dasturchi va Telegram Bot Yaratish</title>
+    <!-- SEO -->
+    <title>Web Pro | Professional Web Dasturchi</title>
     <meta name="description" content="Web Pro - Sizning biznesingiz uchun arzon va sifatli veb-sayt, Telegram bot yaratish va SEO xizmatlari. Narxlar: 500 000 so'mdan. Tel: +998 99 204 83 14">
     <meta name="keywords" content="web dasturchi, web sayt, sayt yaratish narxi, telegram bot, seo, web pro, samir_f4">
     <meta name="author" content="Web Pro">
-    <meta name="robots" content="index, follow">
     
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://webpro.uz/">
-    <meta property="og:title" content="Web Pro | Web Sayt va Bot Yaratish">
-    <meta property="og:description" content="Google'da tez topiladigan zamonaviy saytlar va Telegram botlar. 500 000 so'mdan boshlanadi.">
-    <meta property="og:image" content="https://picsum.photos/seed/webproseo/1200/630">
-    
-    <!-- Google Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Product+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- SCHEMA.ORG JSON-LD -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,10 +31,9 @@
     </script>
 
     <style>
-        /* --- CSS O'ZGARUVCHILARI --- */
+        /* --- CSS VARIABLES --- */
         :root {
             --primary-color: #2563eb;
-            --primary-dark: #1e40af;
             --accent-color: #06b6d4;
             --text-main: #1f2937;
             --text-light: #6b7280;
@@ -53,366 +42,145 @@
             --gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
             --ad-bg: #fff1f2;
             --ad-text: #9f1239;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --radius: 16px;
         }
 
-        /* --- UMUMIY SOZLAMALAR --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; }
+        /* --- RESET & BASIC --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-main); background: var(--bg-white); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* TUGMALAR */
+        /* --- BUTTONS --- */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 36px;
-            background: var(--gradient);
-            color: white;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-            touch-action: manipulation;
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 32px; background: var(--gradient); color: white;
+            font-weight: 600; border-radius: 50px; border: none; cursor: pointer;
+            font-size: 1rem; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); touch-action: manipulation; transition: 0.3s;
         }
-
         .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3); }
         .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
         .btn-danger { background: #ef4444; box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2); }
-        .btn-danger:hover { box-shadow: 0 10px 15px rgba(239, 68, 68, 0.3); background: #dc2626; }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            box-shadow: none;
-        }
-
+        .btn-danger:hover { background: #dc2626; }
+        .btn-outline { background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); box-shadow: none; }
         .btn-outline:hover { background: var(--primary-color); color: white; }
-
-        section { padding: 80px 0; }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-
-        .section-title p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .btn-full { width: 100%; }
 
         /* --- HEADER --- */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            height: 70px;
-            display: flex;
-            align-items: center;
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); height: 70px; display: flex; align-items: center;
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: shine 3s linear infinite;
-        }
-
+        nav { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shine 3s linear infinite; }
         @keyframes shine { to { background-position: 200% center; } }
-
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-weight: 500; color: var(--text-main); transition: color 0.3s; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--primary-color); }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
 
-        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); z-index: 1001; }
-
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         .hero {
-            padding-top: 120px;
-            padding-bottom: 80px;
-            background: linear-gradient(to bottom, #eff6ff, #ffffff);
-            display: flex;
-            align-items: center;
-            min-height: 90vh;
-            overflow: hidden;
-            perspective: 1000px;
+            padding-top: 120px; padding-bottom: 80px;
+            background: linear-gradient(to bottom, #eff6ff, #ffffff); min-height: 90vh;
+            display: flex; align-items: center; perspective: 1000px; overflow: hidden;
         }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            color: var(--text-main);
-        }
-
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; color: var(--text-main); }
         .hero-gradient-text {
-            display: inline-block;
-            background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
+            display: inline-block; background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb);
+            background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text;
             animation: shine 3s linear infinite;
         }
-
         .hero-text p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 35px; }
         .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
 
         /* --- ANIMATED SLIDER CARD --- */
-        .hero-image {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform-style: preserve-3d;
-        }
-
+        .hero-image { position: relative; width: 100%; height: 450px; display: flex; justify-content: center; align-items: center; transform-style: preserve-3d; }
         .card-3d {
-            position: absolute;
-            width: 320px;
-            height: 220px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.1s ease-out, background 0.5s ease;
-            transform-style: preserve-3d;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            z-index: 10;
-            user-select: none; /* Matnni tanlab bo'lmasligi uchun */
-            cursor: pointer;
+            position: absolute; width: 320px; height: 220px; background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: transform 0.1s ease-out, background 0.5s ease; transform-style: preserve-3d;
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 10; user-select: none; cursor: pointer;
         }
+        .slider-content { display: flex; flex-direction: column; align-items: center; transform: translateZ(50px); opacity: 1; transition: opacity 0.3s ease; }
+        .slider-content.fade-out { opacity: 0; }
+        .card-icon { font-size: 4.5rem; margin-bottom: 15px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.5s ease; }
+        .card-title { font-size: 1.6rem; font-weight: 700; color: var(--text-main); text-align: center; }
+        .pause-indicator { position: absolute; bottom: 15px; font-size: 0.8rem; color: #9ca3af; opacity: 0; transition: opacity 0.3s; transform: translateZ(60px); }
+        .card-3d:hover .pause-indicator, .card-3d:active .pause-indicator { opacity: 1; }
 
-        /* Karta ichidagi kontent */
-        .slider-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transform: translateZ(50px);
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        .slider-content.fade-out {
-            opacity: 0;
-        }
-
-        .card-icon {
-            font-size: 4.5rem;
-            margin-bottom: 15px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* Ikona rangini ham animatsiya qilish uchun */
-            transition: all 0.5s ease;
-        }
-
-        .card-title {
-            font-size: 1.6rem; 
-            font-weight: 700; 
-            color: var(--text-main);
-            text-align: center;
-        }
-        
-        /* Hover/Pause holatidagi ko'rsatkich */
-        .pause-indicator {
-            position: absolute;
-            bottom: 15px;
-            font-size: 0.8rem;
-            color: #9ca3af;
-            opacity: 0;
-            transition: opacity 0.3s;
-            transform: translateZ(60px);
-        }
-        
-        .card-3d:hover .pause-indicator, .card-3d:active .pause-indicator {
-            opacity: 1;
-        }
-
-        /* Qo'shimcha elementlar */
+        /* --- FLOATING ICONS --- */
         .floating-icon {
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            font-size: 1.8rem;
-            transition: transform 0.1s ease-out;
+            position: absolute; width: 70px; height: 70px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); font-size: 1.8rem; transition: transform 0.1s ease-out;
         }
-
         .icon-1 { top: -20px; left: -20px; color: #ec4899; transform: translateZ(70px); }
         .icon-2 { bottom: -30px; right: -20px; color: #06b6d4; transform: translateZ(90px); }
         .icon-3 { top: 40%; right: -60px; color: #8b5cf6; transform: translateZ(50px); }
         .icon-4 { bottom: 30px; left: -50px; color: #10b981; transform: translateZ(60px); }
 
-        /* --- REKLAMA (AD) SECTION --- */
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 {
+            font-size: 2.5rem; font-weight: 800; margin-bottom: 15px; background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;
+        }
+        .section-title p { color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* --- AD BANNER --- */
         .ad-banner {
-            background-color: var(--ad-bg);
-            border: 2px solid #fda4af;
-            border-radius: 20px;
-            padding: 30px;
-            margin: 40px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.1);
+            background-color: var(--ad-bg); border: 2px solid #fda4af; border-radius: 20px;
+            padding: 30px; margin: 40px 0; display: flex; justify-content: space-between; align-items: center;
+            position: relative; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.1);
             animation: pulse-border 2s infinite;
         }
-
         @keyframes pulse-border {
             0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
             70% { box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
             100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
         }
-
         .ad-content { flex: 1; padding-right: 20px; z-index: 2; }
-        .ad-tag {
-            background: #f43f5e;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
+        .ad-tag { background: #f43f5e; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
         .ad-title { font-size: 1.5rem; font-weight: 800; color: var(--ad-text); margin-bottom: 8px; }
         .ad-desc { color: #881337; font-size: 1rem; margin-bottom: 15px; }
-        
-        .ad-btn {
-            background: #f43f5e;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s;
-        }
+        .ad-btn { background: #f43f5e; color: white; padding: 12px 24px; border-radius: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
         .ad-btn:hover { transform: scale(1.05); }
 
-        /* --- ADMIN PANELI STILI --- */
+        /* --- ADMIN PANEL --- */
         .admin-section {
-            border: 2px dashed #9ca3af;
-            padding: 20px;
-            margin: 20px 0;
-            background: #f3f4f6;
-            border-radius: 12px;
-            display: none; /* Odatda yashirin */
+            border: 2px dashed #9ca3af; padding: 20px; margin: 20px 0;
+            background: #f3f4f6; border-radius: 12px; display: none;
         }
-        
         .admin-section.active { display: block; }
         .admin-section h4 { margin-bottom: 15px; color: #374151; border-bottom: 1px solid #d1d5db; padding-bottom: 10px; }
         .admin-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
-        .admin-tab-btn {
-            padding: 8px 16px; background: #e5e7eb; border: none; border-radius: 6px; cursor: pointer;
-        }
+        .admin-tab-btn { padding: 8px 16px; background: #e5e7eb; border: none; border-radius: 6px; cursor: pointer; }
         .admin-tab-btn.active { background: var(--primary-color); color: white; }
-        
         .form-row { margin-bottom: 15px; }
         .form-row label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; }
-        .form-row input, .form-row textarea, .form-row select {
-            width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit;
-        }
-        
-        .service-list-item {
-            background: white; padding: 10px; margin-bottom: 10px; border-radius: 6px;
-            display: flex; justify-content: space-between; align-items: center; border: 1px solid #e5e7eb;
-        }
-
-        /* MAXFIY ADMIN TUGMASI */
-        .toggle-admin {
-            width: 6px; height: 6px; background-color: #e5e7eb; border-radius: 50%;
-            margin: 10px auto; cursor: pointer; transition: background-color 0.3s; display: block;
-        }
+        .form-row input, .form-row textarea, .form-row select { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit; }
+        .service-list-item { background: white; padding: 10px; margin-bottom: 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e5e7eb; }
+        .toggle-admin { width: 6px; height: 6px; background-color: #e5e7eb; border-radius: 50%; margin: 10px auto; cursor: pointer; transition: 0.3s; display: block; }
         .toggle-admin:hover { background-color: var(--primary-color); }
 
-        /* --- XIZMATLAR --- */
+        /* --- SERVICES --- */
         .services { background-color: var(--bg-light); }
-        .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-        }
-
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .pricing-card {
             background: white; padding: 40px 30px; border-radius: var(--radius);
             box-shadow: var(--shadow); text-align: center; transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #e5e7eb; display: flex; flex-direction: column;
         }
-        .pricing-card:hover {
-            transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: var(--primary-color);
-        }
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: var(--primary-color); }
         .pricing-icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; }
         .price { font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin: 20px 0; }
         .features-list { margin: 20px 0 30px; text-align: left; flex-grow: 1; }
@@ -421,47 +189,31 @@
 
         /* --- FEATURES --- */
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .feature-box {
-            padding: 30px; background: #fff; border-radius: var(--radius);
-            box-shadow: var(--shadow); text-align: center; transition: transform 0.3s;
-        }
+        .feature-box { padding: 30px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; transition: transform 0.3s; }
         .feature-box:hover { transform: translateY(-5px); }
-        .feature-box i {
-            font-size: 2.5rem; margin-bottom: 20px;
-            background: -webkit-linear-gradient(var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+        .feature-box i { font-size: 2.5rem; margin-bottom: 20px; background: -webkit-linear-gradient(var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         /* --- CONTACT --- */
         .contact { background: var(--bg-light); }
-        .contact-container {
-            background: white; border-radius: 20px; box-shadow: var(--shadow);
-            padding: 50px; display: flex; flex-wrap: wrap; gap: 50px;
-        }
+        .contact-container { background: white; border-radius: 20px; box-shadow: var(--shadow); padding: 50px; display: flex; flex-wrap: wrap; gap: 50px; }
         .contact-info { flex: 1; min-width: 300px; }
         .contact-item { display: flex; align-items: center; margin-bottom: 25px; }
-        .contact-icon {
-            width: 50px; height: 50px; background: #eff6ff; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--primary-color); font-size: 1.2rem; margin-right: 15px; flex-shrink: 0;
-        }
+        .contact-icon { width: 50px; height: 50px; background: #eff6ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 1.2rem; margin-right: 15px; flex-shrink: 0; }
         .contact-form { flex: 1; min-width: 300px; }
         .form-group { margin-bottom: 20px; }
-        .form-control {
-            width: 100%; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px;
-            font-family: inherit; font-size: 1rem; transition: border-color 0.3s;
-        }
+        .form-control { width: 100%; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: inherit; font-size: 1rem; transition: border-color 0.3s; }
         .form-control:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+
+        /* --- ADVERTISE WITH US --- */
+        .advertise-section { background: #f9fafb; padding: 60px 0; text-align: center; border-top: 1px solid #e5e7eb; }
+        .advertise-card { background: white; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid #e5e7eb; }
+        .advertise-card h3 { margin-bottom: 20px; color: var(--text-main); font-size: 1.5rem; }
 
         /* --- FOOTER --- */
         footer { background: #111827; color: white; padding: 60px 0 20px; text-align: center; }
         .footer-logo { font-size: 2rem; font-weight: 800; margin-bottom: 20px; display: inline-block; }
         .social-links { margin-bottom: 30px; }
-        .social-links a {
-            display: inline-flex; width: 45px; height: 45px; background: rgba(255,255,255,0.1);
-            border-radius: 50%; align-items: center; justify-content: center;
-            margin: 0 10px; transition: background 0.3s; font-size: 1.2rem;
-        }
+        .social-links a { display: inline-flex; width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; align-items: center; justify-content: center; margin: 0 10px; transition: background 0.3s; font-size: 1.2rem; }
         .social-links a:hover { background: var(--primary-color); }
         .copyright { color: #9ca3af; font-size: 0.9rem; border-top: 1px solid #374151; padding-top: 20px; }
 
@@ -474,24 +226,15 @@
             .hero-buttons { justify-content: center; width: 100%; }
             .btn, .btn-outline { width: 100%; justify-content: center; }
         }
-
         @media (max-width: 768px) {
             .section-title h2 { font-size: 2rem; }
             .section-title { margin-bottom: 40px; }
             .mobile-menu-btn { display: block; }
-            .nav-links {
-                display: none; position: fixed; top: 0; right: -100%; width: 80%;
-                max-width: 300px; height: 100vh; background: white; flex-direction: column;
-                padding: 80px 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transition: right 0.4s ease; gap: 25px; z-index: 999;
-            }
+            .nav-links { display: none; position: fixed; top: 0; right: -100%; width: 80%; max-width: 300px; height: 100vh; background: white; flex-direction: column; padding: 80px 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.4s ease; gap: 25px; z-index: 999; }
             .nav-links.active { right: 0; }
             .nav-links a { font-size: 1.2rem; font-weight: 600; }
             body.menu-open { overflow: hidden; }
-            .overlay {
-                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0,0,0,0.5); z-index: 998; backdrop-filter: blur(3px);
-            }
+            .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; backdrop-filter: blur(3px); }
             .overlay.active { display: block; }
             .contact-container { padding: 30px 20px; flex-direction: column; }
             section { padding: 60px 0; }
@@ -499,10 +242,56 @@
             .ad-content { padding-right: 0; margin-bottom: 20px; }
             .ad-btn { width: 100%; justify-content: center; }
         }
+
+        /* --- ABOUT MODAL STYLES --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(5px);
+            z-index: 9999; display: none; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+
+        .modal-content {
+            background: #1e293b; border: 1px solid #334155; border-radius: 20px;
+            padding: 40px; max-width: 800px; width: 90%; text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative; transform: translateY(20px); transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+
+        .modal-close-btn {
+            position: absolute; top: 20px; right: 20px;
+            background: rgba(255,255,255,0.1); color: #cbd5e1; border: none;
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+            font-size: 1.2rem; transition: 0.3s;
+        }
+        .modal-close-btn:hover { background: rgba(255,255,255,0.2); color: white; }
+
+        .typing-container {
+            font-size: 1.3rem; line-height: 2; color: #e2e8f0; min-height: 250px;
+            white-space: pre-wrap; text-align: left; margin-bottom: 30px;
+            font-family: 'Inter', sans-serif; font-weight: 400;
+        }
+        .cursor { display: inline-block; width: 2px; background-color: #2563eb; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .google-3d-container { perspective: 1000px; display: flex; justify-content: center; margin-top: 20px; }
+        .google-logo-3d {
+            font-size: 2.5rem; font-weight: 800; font-family: 'Product Sans', Arial, sans-serif;
+            transform-style: preserve-3d; animation: rotateLogo 4s infinite linear; cursor: pointer;
+        }
+        .google-logo-3d:hover { animation-play-state: paused; transform: scale(1.1) rotateY(45deg); }
+        .g-blue { color: #4285F4; transform: translateZ(20px); display: inline-block; }
+        .g-red { color: #EA4335; transform: translateZ(20px); display: inline-block; }
+        .g-yellow { color: #FBBC05; transform: translateZ(20px); display: inline-block; }
+        .g-green { color: #34A853; transform: translateZ(20px); display: inline-block; }
+        @keyframes rotateLogo { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
     </style>
 </head>
 <body>
 
+    <!-- Overlay -->
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
     <!-- Header -->
@@ -515,6 +304,8 @@
                     <li><a href="#services" onclick="toggleMenu()">Xizmatlar</a></li>
                     <li><a href="#features" onclick="toggleMenu()">Afzalliklar</a></li>
                     <li><a href="#contact" onclick="toggleMenu()">Aloqa</a></li>
+                    <!-- SAYT HAQIDA TUGMASI (MODAL) -->
+                    <li><a href="#" onclick="openAboutModal()"><i class="fas fa-info-circle"></i> Sayt haqida</a></li>
                 </ul>
                 <div class="mobile-menu-btn" onclick="toggleMenu()">
                     <i class="fas fa-bars" id="menuIcon"></i>
@@ -543,7 +334,7 @@
                     <div class="card-3d" id="card3d">
                         <div class="slider-content" id="sliderContent">
                             <i class="fas fa-laptop-code card-icon" id="cardIcon"></i>
-                            <h3 class="card-title" id="cardTitle">Web Development</h3>
+                            <h3 class="card-title" id="cardTitle">Web Sahifa</h3>
                         </div>
                         <span class="pause-indicator">To'xtatish uchun bosing</span>
                     </div>
@@ -742,13 +533,24 @@
         </section>
     </main>
 
+    <!-- REKLAMA QABUL QILISH (FOOTER OLDI) -->
+    <section class="advertise-section">
+        <div class="container">
+            <div class="advertise-card">
+                <h3><i class="fas fa-ad"></i> O'zingizning reklamaningizni joylashtiring</h3>
+                <p style="color: #6b7280; margin-bottom: 20px;">Bizning platformamiz orqali o'zingizning brendingizni minglab foydalanuvchilarga yetkazing.</p>
+                <button class="btn" onclick="openAboutModal()">Reklama joylashtirish</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-logo">Web <span>Pro</span></div>
             <div class="social-links">
                 <a href="https://t.me/samir_f4" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                <!-- INSTAGRAM LINK O'ZGARTIRILDI -->
+                <!-- INSTAGRAM LINK -->
                 <a href="https://www.instagram.com/uzwebpro" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
@@ -756,12 +558,90 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- ABOUT MODAL (INLINE) -->
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeAboutModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="typing-container" id="typingText"></div>
+            <span class="cursor" id="cursor">|</span>
+
+            <div class="google-3d-container">
+                <div class="google-logo-3d">
+                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
     <script>
         const BOT_TOKEN = '8363658905:AAFyFe3uqbn1jcac4sJQOHnxSGtkMwAuW20';
         const CHAT_ID = '5588598964';
 
-        // --- 1. SLIDER ANIMATION DATA ---
+        // --- 1. ABOUT MODAL LOGIC (FIXED) ---
+        function openAboutModal() {
+            const modal = document.getElementById('aboutModal');
+            const textContainer = document.getElementById('typingText');
+            const cursor = document.getElementById('cursor');
+            
+            // Modalni ko'rsatish
+            modal.classList.add('active');
+            
+            // Matnni tozalash
+            textContainer.innerHTML = '';
+            
+            // Matnni yozish funksiyasini ishga tushirish
+            typeWriterEffect(textToType);
+        }
+
+        function closeAboutModal() {
+            document.getElementById('aboutModal').classList.remove('active');
+        }
+
+        // Modal tugmasi yopish uchun (Overlay bosganda ham)
+        document.getElementById('aboutModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAboutModal();
+            }
+        });
+
+        const textToType = `BIZ SAYTIMIZNI MUKAMMAL DEYA OLMAYMIZ
+BIZ FAQAT SIZNING BIZNESINGIZ UCHUN RIVOJ QO'SHISH HARAKATIDAMIZ
+
+SIZNING BIZNESINGIZ INSTAGRAM, TELEGRAM, YOUTUBE VA BOSHQA PLATFORMALARDA HAM BOR
+ENDI BIZNESINGIZNI DUNYO FOYDALANADIGAN GOOGLE SAHIFASIGA QO'YISH VAQTI KELDI
+
+SIZ BIZDA HAMMA HIZMATLAR BOR
+ERTIBORINGIZ UCHUN RAHMAT`;
+
+        function typeWriterEffect(text) {
+            const container = document.getElementById('typingText');
+            let index = 0;
+            
+            function type() {
+                if (index < text.length) {
+                    container.innerHTML += text.charAt(index);
+                    index++;
+                    // Harf yozilish tezligi
+                    setTimeout(type, 30);
+                } else {
+                    // Yozib tugagach, kursorni yo'qolish (ixtiyoriy)
+                    document.getElementById('cursor').style.display = 'none';
+                }
+            }
+            type();
+        }
+
+        // Modal ochilganda kursorni qayta ko'rsatish
+        function resetCursor() {
+            const cursor = document.getElementById('cursor');
+            cursor.style.display = 'inline-block';
+        }
+
+        // --- 2. SLIDER & 3D LOGIC ---
         const slides = [
             { title: "Web Sahifa", icon: "fas fa-laptop-code", color: "#2563eb" },
             { title: "Telegram Bot", icon: "fab fa-telegram-plane", color: "#0088cc" },
@@ -769,194 +649,70 @@
             { title: "Mobil Dastur", icon: "fas fa-mobile-alt", color: "#f59e0b" },
             { title: "Dizayn", icon: "fas fa-paint-brush", color: "#ec4899" }
         ];
+        let currentSlide = 0, sliderInterval, isPaused = false;
 
-        let currentSlide = 0;
-        let sliderInterval;
-        let isPaused = false;
-
-        // --- 2. SLIDER LOGIC ---
         function startSlider() {
             const card = document.getElementById('card3d');
-            const titleEl = document.getElementById('cardTitle');
-            const iconEl = document.getElementById('cardIcon');
-            const contentEl = document.getElementById('sliderContent');
-
-            // Touch / Mouse start events (Boshqarish uchun)
             card.addEventListener('mousedown', pauseSlider);
             card.addEventListener('touchstart', pauseSlider);
-            
-            // Touch / Mouse end events
             card.addEventListener('mouseup', resumeSlider);
             card.addEventListener('mouseleave', resumeSlider);
             card.addEventListener('touchend', resumeSlider);
-
-            sliderInterval = setInterval(() => {
-                if (!isPaused) {
-                    changeSlide();
-                }
-            }, 2000); // Har 2 soniyada o'zgaradi
+            sliderInterval = setInterval(() => { if(!isPaused) changeSlide(); }, 2000);
         }
 
         function changeSlide() {
             const contentEl = document.getElementById('sliderContent');
             const titleEl = document.getElementById('cardTitle');
             const iconEl = document.getElementById('cardIcon');
-
-            // 1. Fade out (Yashirish)
             contentEl.classList.add('fade-out');
-
             setTimeout(() => {
-                // 2. Ma'lumotlarni o'zgartirish
                 currentSlide = (currentSlide + 1) % slides.length;
-                const slideData = slides[currentSlide];
-
-                titleEl.innerText = slideData.title;
-                iconEl.className = `${slideData.icon} card-icon`;
-                
-                // Ikona rangini o'zgartirish
-                iconEl.style.background = `linear-gradient(to right, ${slideData.color}, #06b6d4)`;
-                iconEl.style.webkitBackgroundClip = 'text';
-                iconEl.style.webkitTextFillColor = 'transparent';
-
-                // 3. Fade in (Ko'rsatish)
+                const s = slides[currentSlide];
+                titleEl.innerText = s.title;
+                iconEl.className = `${s.icon} card-icon`;
+                iconEl.style.background = `linear-gradient(to right, ${s.color}, #06b6d4)`;
+                iconEl.style.webkitBackgroundClip = 'text'; iconEl.style.webkitTextFillColor = 'transparent';
                 contentEl.classList.remove('fade-out');
-            }, 300); // 300ms kutish (animatsiya tugashini kutish)
+            }, 300);
         }
+        function pauseSlider() { isPaused = true; }
+        function resumeSlider() { isPaused = false; }
 
-        function pauseSlider() {
-            isPaused = true;
-        }
-
-        function resumeSlider() {
-            isPaused = false;
-        }
-
-        // --- 3. XIZMATLAR (Asosiy va Qo'shilganlar) ---
+        // --- 3. SERVICES LOGIC ---
         let allServices = [
-            {
-                id: 1,
-                title: "Web Sahifa",
-                price: "500 000 so'mdan",
-                icon: "fas fa-laptop-code",
-                features: [
-                    "SEO (Google topilishi)",
-                    "Mobil qurilmalarga mos",
-                    "Tezkor ishlash",
-                    "QR kod generatsiyasi"
-                ],
-                isCustom: false
-            },
-            {
-                id: 2,
-                title: "Telegram Bot",
-                price: "800 000 so'mdan",
-                icon: "fab fa-telegram-plane",
-                features: [
-                    "Avtomatlashtirish",
-                    "To'lov tizimlari",
-                    "Admin panel",
-                    "24/7 ishlashi"
-                ],
-                isCustom: false
-            },
-            {
-                id: 3,
-                title: "Kompleks",
-                price: "Kelishilgan",
-                icon: "fas fa-layer-group",
-                features: [
-                    "Sayt + Bot + Domen",
-                    "To'liq branding",
-                    "Texnik qo'llab-quvvatlash",
-                    "Bepulsiz yangilashlar"
-                ],
-                isCustom: false
-            }
+            { id: 1, title: "Web Sahifa", price: "500 000 so'mdan", icon: "fas fa-laptop-code", features: ["SEO (Google topilishi)", "Mobil qurilmalarga mos", "Tezkor ishlash", "QR kod generatsiyasi"], isCustom: false },
+            { id: 2, title: "Telegram Bot", price: "800 000 so'mdan", icon: "fab fa-telegram-plane", features: ["Avtomatlashtirish", "To'lov tizimlari", "Admin panel", "24/7 ishlashi"], isCustom: false },
+            { id: 3, title: "Kompleks", price: "Kelishilgan", icon: "fas fa-layer-group", features: ["Sayt + Bot + Domen", "To'liq branding", "Texnik qo'llab-quvvatlash", "Bepulsiz yangilashlar"], isCustom: false }
         ];
-
-        // --- INIT ---
-        window.addEventListener('DOMContentLoaded', () => {
-            startSlider(); // Animatsiyani ishga tushirish
-            loadAd();
-            loadCustomServices();
-            renderServices();
-        });
-
-        // --- REKLAMA LOGIC ---
-        function loadAd() {
-            const savedAd = localStorage.getItem('webProAd');
-            if (savedAd) {
-                const adData = JSON.parse(savedAd);
-                document.getElementById('adTitle').innerText = adData.title;
-                document.getElementById('adDesc').innerText = adData.desc;
-                document.getElementById('adLink').href = adData.link;
-                document.getElementById('inputAdTitle').value = adData.title;
-                document.getElementById('inputAdDesc').value = adData.desc;
-                document.getElementById('inputAdLink').value = adData.link;
-            }
-        }
-
-        function saveAd() {
-            const title = document.getElementById('inputAdTitle').value;
-            const desc = document.getElementById('inputAdDesc').value;
-            const link = document.getElementById('inputAdLink').value;
-            const adData = { title, desc, link };
-            localStorage.setItem('webProAd', JSON.stringify(adData));
-            
-            document.getElementById('adTitle').innerText = title;
-            document.getElementById('adDesc').innerText = desc;
-            document.getElementById('adLink').href = link;
-            alert("Reklama saqlab qo'yildi!");
-        }
-
-        function resetAd() {
-            if(confirm("Reklamani standart holatga qaytarmoqchimisiz?")) {
-                localStorage.removeItem('webProAd');
-                location.reload();
-            }
-        }
-
-        // --- YANGI XIZMAT LOGIC ---
-        function loadCustomServices() {
-            const savedServices = localStorage.getItem('webProCustomServices');
-            if (savedServices) {
-                const custom = JSON.parse(savedServices);
-                allServices = [...allServices, ...custom];
-            }
-        }
 
         function renderServices() {
             const grid = document.getElementById('pricingGrid');
             const adminList = document.getElementById('adminServiceList');
-            grid.innerHTML = '';
-            adminList.innerHTML = '';
-
+            grid.innerHTML = ''; adminList.innerHTML = '';
             allServices.forEach(service => {
-                // 1. Sahifaga chiqarish
                 const card = document.createElement('div');
                 card.className = 'pricing-card';
                 card.innerHTML = `
                     <div class="pricing-icon"><i class="${service.icon}"></i></div>
                     <h3>${service.title}</h3>
                     <p class="price">${service.price}</p>
-                    <ul class="features-list">
-                        ${service.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
-                    </ul>
+                    <ul class="features-list">${service.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}</ul>
                     <button class="btn btn-full" onclick="selectService('${service.title}')">Buyurtma berish</button>
                 `;
                 grid.appendChild(card);
-
-                // 2. Admin panel ro'yxatiga chiqarish (Faqat custom)
                 if (service.isCustom) {
                     const listItem = document.createElement('div');
                     listItem.className = 'service-list-item';
-                    listItem.innerHTML = `
-                        <span><strong>${service.title}</strong> (${service.price})</span>
-                        <button class="btn btn-sm btn-danger" onclick="deleteService(${service.id})">O'chirish</button>
-                    `;
+                    listItem.innerHTML = `<span><strong>${service.title}</strong> (${service.price})</span><button class="btn btn-sm btn-danger" onclick="deleteService(${service.id})">O'chirish</button>`;
                     adminList.appendChild(listItem);
                 }
             });
+        }
+
+        function loadCustomServices() {
+            const saved = localStorage.getItem('webProCustomServices');
+            if (saved) allServices = [...allServices, ...JSON.parse(saved)];
         }
 
         function addService() {
@@ -964,44 +720,21 @@
             const price = document.getElementById('newServicePrice').value;
             const icon = document.getElementById('newServiceIcon').value;
             const featuresStr = document.getElementById('newServiceFeatures').value;
-
-            if (!title || !price || !featuresStr) {
-                alert("Iltimos, barcha maydonlarni to'ldiring!");
-                return;
-            }
-
-            const featuresArray = featuresStr.split(',').map(s => s.trim());
-
-            const newService = {
-                id: Date.now(),
-                title: title,
-                price: price,
-                icon: icon,
-                features: featuresArray,
-                isCustom: true
-            };
-
-            const currentSaved = localStorage.getItem('webProCustomServices');
-            let savedList = currentSaved ? JSON.parse(currentSaved) : [];
-            savedList.push(newService);
-            localStorage.setItem('webProCustomServices', JSON.stringify(savedList));
-
-            clearServiceForm();
-            alert("Xizmat muvaffaqiyatli qo'shildi!");
-            location.reload();
+            if (!title || !price || !featuresStr) return alert("Maydonlarni to'ldiring");
+            const newS = { id: Date.now(), title, price, icon, features: featuresStr.split(',').map(s=>s.trim()), isCustom: true };
+            const saved = localStorage.getItem('webProCustomServices');
+            let list = saved ? JSON.parse(saved) : [];
+            list.push(newS);
+            localStorage.setItem('webProCustomServices', JSON.stringify(list));
+            alert("Qo'shildi!"); location.reload();
         }
 
         function deleteService(id) {
-            if(confirm("Haqiqatan ham bu xizmatni o'chirmoqchimisiz?")) {
-                const currentSaved = localStorage.getItem('webProCustomServices');
-                let savedList = currentSaved ? JSON.parse(currentSaved) : [];
-                
-                savedList = savedList.filter(s => s.id !== id);
-                localStorage.setItem('webProCustomServices', JSON.stringify(savedList));
-                
-                alert("Xizmat o'chirildi!");
-                location.reload();
-            }
+            if(!confirm("O'chirasizmi?")) return;
+            let list = JSON.parse(localStorage.getItem('webProCustomServices') || '[]');
+            list = list.filter(s => s.id !== id);
+            localStorage.setItem('webProCustomServices', JSON.stringify(list));
+            location.reload();
         }
 
         function clearServiceForm() {
@@ -1010,101 +743,81 @@
             document.getElementById('newServiceFeatures').value = '';
         }
 
-        // --- ADMIN PANEL UI ---
+        // --- 4. ADMIN PANEL LOGIC ---
         function toggleAdminPanel() {
-            const adminPassword = "1234";
-            const inputPassword = prompt("Admin parolini kiriting:");
-            if (inputPassword === adminPassword) {
-                const panel = document.getElementById('adminPanel');
-                panel.classList.toggle('active');
-            } else {
-                alert("Noto'g'ri parol!");
-            }
+            if (prompt("Admin parol (1234):") === "1234") document.getElementById('adminPanel').classList.toggle('active');
+            else alert("Noto'g'ri");
         }
 
-        function switchTab(tabName) {
-            document.getElementById('tabAd').style.display = tabName === 'ad' ? 'block' : 'none';
-            document.getElementById('tabService').style.display = tabName === 'service' ? 'block' : 'none';
-            
-            const btns = document.querySelectorAll('.admin-tab-btn');
-            btns.forEach(btn => btn.classList.remove('active'));
+        function switchTab(name) {
+            document.getElementById('tabAd').style.display = name === 'ad' ? 'block' : 'none';
+            document.getElementById('tabService').style.display = name === 'service' ? 'block' : 'none';
+            document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
         }
 
-        // --- FORM & NAV ---
-        let selectedService = "";
+        function saveAd() {
+            const ad = { title: document.getElementById('inputAdTitle').value, desc: document.getElementById('inputAdDesc').value, link: document.getElementById('inputAdLink').value };
+            localStorage.setItem('webProAd', JSON.stringify(ad));
+            document.getElementById('adTitle').innerText = ad.title;
+            document.getElementById('adDesc').innerText = ad.desc;
+            document.getElementById('adLink').href = ad.link;
+            alert("Saqlandi!");
+        }
 
-        function selectService(serviceName) {
-            selectedService = serviceName;
-            document.getElementById('message').value = `Assalomu alaykum! Men "${serviceName}" xizmatiga buyurtma bermoqchiman.`;
+        function loadAd() {
+            const saved = localStorage.getItem('webProAd');
+            if (saved) {
+                const ad = JSON.parse(saved);
+                document.getElementById('adTitle').innerText = ad.title;
+                document.getElementById('adDesc').innerText = ad.desc;
+                document.getElementById('adLink').href = ad.link;
+                document.getElementById('inputAdTitle').value = ad.title;
+                document.getElementById('inputAdDesc').value = ad.desc;
+                document.getElementById('inputAdLink').value = ad.link;
+            }
+        }
+
+        function resetAd() { if(confirm("Qaytarmisiz?")) { localStorage.removeItem('webProAd'); location.reload(); } }
+
+        // --- 5. NAVIGATION & FORM ---
+        let selectedService = "";
+        function selectService(name) {
+            selectedService = name;
+            document.getElementById('message').value = `Assalomu alaykum! Men "${name}" xizmatiga buyurtma bermoqchiman.`;
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
 
-        async function sendTelegram(event) {
-            event.preventDefault();
+        async function sendTelegram(e) {
+            e.preventDefault();
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            const btn = event.target.querySelector('button');
-            const originalText = btn.innerText;
-
-            let finalText = `📢 *Yangi Buyurtma!*\n\n` +
-                         `👤 *Ismi:* ${name}\n` +
-                         `📱 *Telefon:* ${phone}\n` +
-                         `💬 *Xabar:* ${message}\n`;
-            
-            if (selectedService) {
-                finalText += `🛠 *Tanlangan Xizmat:* ${selectedService}\n`;
-            }
-            
-            finalText += `🌐 *Manba:* Web Pro Sayti`;
-
+            const msg = document.getElementById('message').value;
+            let text = `📢 *Yangi Buyurtma!*\n\n👤 *Ismi:* ${name}\n📱 *Telefon:* ${phone}\n💬 *Xabar:* ${msg}\n`;
+            if(selectedService) text += `🛠 *Tanlangan Xizmat:* ${selectedService}\n`;
+            text += `🌐 *Manba:* Web Pro Sayti`;
+            const btn = e.target.querySelector('button');
+            const old = btn.innerText;
             btn.innerText = "Yuborilmoqda...";
             btn.disabled = true;
-
             try {
-                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: CHAT_ID, text: finalText, parse_mode: 'Markdown' })
-                });
-
-                if (response.ok) {
-                    alert("Xabaringiz muvaffaqiyatli yuborildi!");
-                    document.getElementById('telegramForm').reset();
-                    selectedService = "";
-                } else {
-                    alert("Xatolik yuz berdi.");
-                }
-            } catch (error) {
-                console.error('Xato:', error);
-                alert("Internet bilan aloqa yo'q.");
-            } finally {
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }
+                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'Markdown' }) });
+                if (res.ok) { alert("Yuborildi!"); document.getElementById('telegramForm').reset(); selectedService = ""; }
+                else alert("Xatolik");
+            } catch { alert("Internet yo'q"); } finally { btn.innerText = old; btn.disabled = false; }
         }
 
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
             const overlay = document.getElementById('overlay');
             const icon = document.getElementById('menuIcon');
-            const body = document.body;
-
             nav.classList.toggle('active');
             overlay.classList.toggle('active');
-            body.classList.toggle('menu-open');
-
-            if(nav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            if(nav.classList.contains('active')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+            else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
         }
 
-        // --- 3D ANIMATION LOGIC (Parallax) ---
+        // --- 6. 3D MOUSE PARALLAX ---
         const heroSection = document.getElementById('hero');
         const card = document.querySelector('.card-3d');
         const icons = document.querySelectorAll('.floating-icon');
@@ -1124,11 +837,17 @@
             });
             heroSection.addEventListener('mouseleave', () => {
                 card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-                icons.forEach((icon, index) => {
-                    icon.style.transform = `translateX(0) translateY(0) translateZ(${50 + index * 10}px)`;
-                });
+                icons.forEach((icon, index) => { icon.style.transform = `translateX(0) translateY(0) translateZ(${50 + index * 10}px)`; });
             });
         }
+
+        // INIT
+        window.addEventListener('DOMContentLoaded', () => {
+            startSlider();
+            loadAd();
+            loadCustomServices();
+            renderServices();
+        });
     </script>
 </body>
 </html>
