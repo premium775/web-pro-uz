@@ -1,853 +1,1045 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
+    <!-- SEO Asosiy Meta Teglar -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO -->
-    <title>Web Pro | Professional Web Dasturchi</title>
-    <meta name="description" content="Web Pro - Sizning biznesingiz uchun arzon va sifatli veb-sayt, Telegram bot yaratish va SEO xizmatlari. Narxlar: 500 000 so'mdan. Tel: +998 99 204 83 14">
-    <meta name="keywords" content="web dasturchi, web sayt, sayt yaratish narxi, telegram bot, seo, web pro, samir_f4">
-    <meta name="author" content="Web Pro">
+    <!-- 1. Sahifa Nomi (Google'da ko'rinadigan sarlavha) -->
+    <title>SECURITY WEB | Web Sahifa, Telegram Bot va Logo Dizayn</title>
     
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Product+Sans:wght@700&display=swap" rel="stylesheet">
+    <!-- 2. Sahifa Tavsifi (Google'da sarlavha ostidagi matn) -->
+    <meta name="description" content="SECURITY WEB - Biznesingiz uchun professional web sahifa, telegram bot va logo dizayn xizmatlari. Arzon narxlar va sifatli yechimlar. Hoziroq buyurtma bering!">
+    
+    <!-- 3. Kalit So'zlar (Qidiruv uchun so'zlar) -->
+    <meta name="keywords" content="web sayt yaratish, telegram bot, logo dizayn, biznes sayt, seo, security web, sayt narxlari, dasturchi">
+    
+    <!-- 4. Muallif -->
+    <meta name="author" content="SECURITY WEB">
+    
+    <!-- 5. Open Graph (Ijtimoiy tarmoqlar uchun - Telegram, Facebook) -->
+    <meta property="og:title" content="SECURITY WEB - Biznes yechimlari">
+    <meta property="og:description" content="Biznesingizni onlayn dunyoga olib chiqing. Web sayt, botlar va dizayn.">
+    <meta property="og:image" content="https://picsum.photos/seed/securityweb/1200/630.jpg">
+    <meta property="og:url" content="https://securityweb.uz">
+    <meta property="og:type" content="website">
+
+    <!-- 6. Canonical URL (Asosiy havola - bu saytni ko'chirib olishni oldini oladi) -->
+    <link rel="canonical" href="https://securityweb.uz">
+
+    <!-- Ikonkalar uchun FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Web Pro",
-      "image": "https://picsum.photos/seed/webproseo/1200/630",
-      "telephone": "+998992048314",
-      "url": "https://t.me/samir_f4",
-      "priceRange": "$$",
-      "description": "Professional Web Dasturchi. Web sahifa yaratish, Telegram botlar va SEO optimizatsiyasi xizmatlari."
-    }
-    </script>
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- CSS VARIABLES --- */
         :root {
-            --primary-color: #2563eb;
-            --accent-color: #06b6d4;
-            --text-main: #1f2937;
+            --primary-color: #4f46e5; /* Indigo */
+            --secondary-color: #818cf8;
+            --accent-color: #f59e0b; /* Amber */
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-dark: #1f2937;
             --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --bg-white: #ffffff;
-            --gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
-            --ad-bg: #fff1f2;
-            --ad-text: #9f1239;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --radius: 16px;
+            --success: #10b981;
+            --danger: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
         }
 
-        /* --- RESET & BASIC --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--text-main); background: var(--bg-white); line-height: 1.6; overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 14px 32px; background: var(--gradient); color: white;
-            font-weight: 600; border-radius: 50px; border: none; cursor: pointer;
-            font-size: 1rem; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); touch-action: manipulation; transition: 0.3s;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3); }
-        .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
-        .btn-danger { background: #ef4444; box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2); }
-        .btn-danger:hover { background: #dc2626; }
-        .btn-outline { background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); box-shadow: none; }
-        .btn-outline:hover { background: var(--primary-color); color: white; }
-        .btn-full { width: 100%; }
 
-        /* --- HEADER --- */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Animatsiya (Intro) --- */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+            
+            /* YORQIN RANGLAR BILAN O'ZGARIB TURADIGAN ORQA FON */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .intro-logo {
+            font-size: 4rem; /* Katta yozuv */
+            font-weight: 900; /* Qalin */
+            color: white;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+            animation: zoomInText 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .intro-subtitle {
+            color: rgba(255,255,255,0.95);
+            margin-top: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            animation: fadeInUp 1s ease 0.8s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes zoomInText {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Header --- */
         header {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-            z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); height: 70px; display: flex; align-items: center;
-        }
-        nav { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shine 3s linear infinite; }
-        @keyframes shine { to { background-position: 200% center; } }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-weight: 500; color: var(--text-main); }
-        .nav-links a:hover { color: var(--primary-color); }
-        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding-top: 120px; padding-bottom: 80px;
-            background: linear-gradient(to bottom, #eff6ff, #ffffff); min-height: 90vh;
-            display: flex; align-items: center; perspective: 1000px; overflow: hidden;
-        }
-        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; color: var(--text-main); }
-        .hero-gradient-text {
-            display: inline-block; background: linear-gradient(to right, #2563eb, #06b6d4, #ec4899, #8b5cf6, #2563eb);
-            background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text;
-            animation: shine 3s linear infinite;
-        }
-        .hero-text p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 35px; }
-        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
-
-        /* --- ANIMATED SLIDER CARD --- */
-        .hero-image { position: relative; width: 100%; height: 450px; display: flex; justify-content: center; align-items: center; transform-style: preserve-3d; }
-        .card-3d {
-            position: absolute; width: 320px; height: 220px; background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: transform 0.1s ease-out, background 0.5s ease; transform-style: preserve-3d;
-            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.6);
-            z-index: 10; user-select: none; cursor: pointer;
-        }
-        .slider-content { display: flex; flex-direction: column; align-items: center; transform: translateZ(50px); opacity: 1; transition: opacity 0.3s ease; }
-        .slider-content.fade-out { opacity: 0; }
-        .card-icon { font-size: 4.5rem; margin-bottom: 15px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.5s ease; }
-        .card-title { font-size: 1.6rem; font-weight: 700; color: var(--text-main); text-align: center; }
-        .pause-indicator { position: absolute; bottom: 15px; font-size: 0.8rem; color: #9ca3af; opacity: 0; transition: opacity 0.3s; transform: translateZ(60px); }
-        .card-3d:hover .pause-indicator, .card-3d:active .pause-indicator { opacity: 1; }
-
-        /* --- FLOATING ICONS --- */
-        .floating-icon {
-            position: absolute; width: 70px; height: 70px; background: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); font-size: 1.8rem; transition: transform 0.1s ease-out;
-        }
-        .icon-1 { top: -20px; left: -20px; color: #ec4899; transform: translateZ(70px); }
-        .icon-2 { bottom: -30px; right: -20px; color: #06b6d4; transform: translateZ(90px); }
-        .icon-3 { top: 40%; right: -60px; color: #8b5cf6; transform: translateZ(50px); }
-        .icon-4 { bottom: 30px; left: -50px; color: #10b981; transform: translateZ(60px); }
-
-        /* --- SECTIONS GENERAL --- */
-        section { padding: 80px 0; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 {
-            font-size: 2.5rem; font-weight: 800; margin-bottom: 15px; background: var(--gradient);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;
-        }
-        .section-title p { color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-
-        /* --- AD BANNER --- */
-        .ad-banner {
-            background-color: var(--ad-bg); border: 2px solid #fda4af; border-radius: 20px;
-            padding: 30px; margin: 40px 0; display: flex; justify-content: space-between; align-items: center;
-            position: relative; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.1);
-            animation: pulse-border 2s infinite;
-        }
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
-        }
-        .ad-content { flex: 1; padding-right: 20px; z-index: 2; }
-        .ad-tag { background: #f43f5e; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
-        .ad-title { font-size: 1.5rem; font-weight: 800; color: var(--ad-text); margin-bottom: 8px; }
-        .ad-desc { color: #881337; font-size: 1rem; margin-bottom: 15px; }
-        .ad-btn { background: #f43f5e; color: white; padding: 12px 24px; border-radius: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
-        .ad-btn:hover { transform: scale(1.05); }
-
-        /* --- ADMIN PANEL --- */
-        .admin-section {
-            border: 2px dashed #9ca3af; padding: 20px; margin: 20px 0;
-            background: #f3f4f6; border-radius: 12px; display: none;
-        }
-        .admin-section.active { display: block; }
-        .admin-section h4 { margin-bottom: 15px; color: #374151; border-bottom: 1px solid #d1d5db; padding-bottom: 10px; }
-        .admin-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
-        .admin-tab-btn { padding: 8px 16px; background: #e5e7eb; border: none; border-radius: 6px; cursor: pointer; }
-        .admin-tab-btn.active { background: var(--primary-color); color: white; }
-        .form-row { margin-bottom: 15px; }
-        .form-row label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; }
-        .form-row input, .form-row textarea, .form-row select { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit; }
-        .service-list-item { background: white; padding: 10px; margin-bottom: 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e5e7eb; }
-        .toggle-admin { width: 6px; height: 6px; background-color: #e5e7eb; border-radius: 50%; margin: 10px auto; cursor: pointer; transition: 0.3s; display: block; }
-        .toggle-admin:hover { background-color: var(--primary-color); }
-
-        /* --- SERVICES --- */
-        .services { background-color: var(--bg-light); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .pricing-card {
-            background: white; padding: 40px 30px; border-radius: var(--radius);
-            box-shadow: var(--shadow); text-align: center; transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #e5e7eb; display: flex; flex-direction: column;
-        }
-        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: var(--primary-color); }
-        .pricing-icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; }
-        .price { font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin: 20px 0; }
-        .features-list { margin: 20px 0 30px; text-align: left; flex-grow: 1; }
-        .features-list li { margin-bottom: 12px; font-size: 1rem; }
-        .features-list i { color: #10b981; margin-right: 10px; }
-
-        /* --- FEATURES --- */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .feature-box { padding: 30px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; transition: transform 0.3s; }
-        .feature-box:hover { transform: translateY(-5px); }
-        .feature-box i { font-size: 2.5rem; margin-bottom: 20px; background: -webkit-linear-gradient(var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        /* --- CONTACT --- */
-        .contact { background: var(--bg-light); }
-        .contact-container { background: white; border-radius: 20px; box-shadow: var(--shadow); padding: 50px; display: flex; flex-wrap: wrap; gap: 50px; }
-        .contact-info { flex: 1; min-width: 300px; }
-        .contact-item { display: flex; align-items: center; margin-bottom: 25px; }
-        .contact-icon { width: 50px; height: 50px; background: #eff6ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 1.2rem; margin-right: 15px; flex-shrink: 0; }
-        .contact-form { flex: 1; min-width: 300px; }
-        .form-group { margin-bottom: 20px; }
-        .form-control { width: 100%; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: inherit; font-size: 1rem; transition: border-color 0.3s; }
-        .form-control:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-
-        /* --- ADVERTISE WITH US --- */
-        .advertise-section { background: #f9fafb; padding: 60px 0; text-align: center; border-top: 1px solid #e5e7eb; }
-        .advertise-card { background: white; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid #e5e7eb; }
-        .advertise-card h3 { margin-bottom: 20px; color: var(--text-main); font-size: 1.5rem; }
-
-        /* --- FOOTER --- */
-        footer { background: #111827; color: white; padding: 60px 0 20px; text-align: center; }
-        .footer-logo { font-size: 2rem; font-weight: 800; margin-bottom: 20px; display: inline-block; }
-        .social-links { margin-bottom: 30px; }
-        .social-links a { display: inline-flex; width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; align-items: center; justify-content: center; margin: 0 10px; transition: background 0.3s; font-size: 1.2rem; }
-        .social-links a:hover { background: var(--primary-color); }
-        .copyright { color: #9ca3af; font-size: 0.9rem; border-top: 1px solid #374151; padding-top: 20px; }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 960px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-image { height: 350px; }
-            .card-3d { width: 280px; height: 190px; }
-            .hero-buttons { justify-content: center; width: 100%; }
-            .btn, .btn-outline { width: 100%; justify-content: center; }
-        }
-        @media (max-width: 768px) {
-            .section-title h2 { font-size: 2rem; }
-            .section-title { margin-bottom: 40px; }
-            .mobile-menu-btn { display: block; }
-            .nav-links { display: none; position: fixed; top: 0; right: -100%; width: 80%; max-width: 300px; height: 100vh; background: white; flex-direction: column; padding: 80px 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.4s ease; gap: 25px; z-index: 999; }
-            .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.2rem; font-weight: 600; }
-            body.menu-open { overflow: hidden; }
-            .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; backdrop-filter: blur(3px); }
-            .overlay.active { display: block; }
-            .contact-container { padding: 30px 20px; flex-direction: column; }
-            section { padding: 60px 0; }
-            .ad-banner { flex-direction: column; text-align: center; }
-            .ad-content { padding-right: 0; margin-bottom: 20px; }
-            .ad-btn { width: 100%; justify-content: center; }
+            background: var(--card-bg);
+            padding: 1rem 5%;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* --- ABOUT MODAL STYLES --- */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(5px);
-            z-index: 9999; display: none; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s ease;
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.5px;
         }
-        .modal-overlay.active { display: flex; opacity: 1; }
+
+        .admin-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .admin-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* --- Reklama Box & Lenta --- */
+        .ad-container {
+            margin: 20px 5%;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .ad-box {
+            width: 100%;
+            height: 200px;
+            background-color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .ad-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        .marquee-container {
+            background: var(--text-dark);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* --- Xizmatlar Section --- */
+        .container {
+            padding: 20px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .service-currency {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* --- Chat Section --- */
+        .chat-section {
+            margin-top: 40px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            max-width: 80%;
+            word-wrap: break-word;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .message.own {
+            background: var(--primary-color);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 2px;
+        }
+
+        .message.other {
+            background: #e5e7eb;
+            color: var(--text-dark);
+            margin-right: auto;
+            border-bottom-left-radius: 2px;
+        }
+
+        .msg-author {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .chat-send-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .chat-send-btn:hover {
+            background: #4338ca;
+        }
+
+        /* --- Modal (Registratsiya & Admin) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeInModal 0.3s ease;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
 
         .modal-content {
-            background: #1e293b; border: 1px solid #334155; border-radius: 20px;
-            padding: 40px; max-width: 800px; width: 90%; text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            position: relative; transform: translateY(20px); transition: transform 0.3s ease;
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        .modal-overlay.active .modal-content { transform: translateY(0); }
 
-        .modal-close-btn {
-            position: absolute; top: 20px; right: 20px;
-            background: rgba(255,255,255,0.1); color: #cbd5e1; border: none;
-            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
-            font-size: 1.2rem; transition: 0.3s;
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
         }
-        .modal-close-btn:hover { background: rgba(255,255,255,0.2); color: white; }
 
-        .typing-container {
-            font-size: 1.3rem; line-height: 2; color: #e2e8f0; min-height: 250px;
-            white-space: pre-wrap; text-align: left; margin-bottom: 30px;
-            font-family: 'Inter', sans-serif; font-weight: 400;
+        .form-group {
+            margin-bottom: 15px;
         }
-        .cursor { display: inline-block; width: 2px; background-color: #2563eb; animation: blink 1s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .google-3d-container { perspective: 1000px; display: flex; justify-content: center; margin-top: 20px; }
-        .google-logo-3d {
-            font-size: 2.5rem; font-weight: 800; font-family: 'Product Sans', Arial, sans-serif;
-            transform-style: preserve-3d; animation: rotateLogo 4s infinite linear; cursor: pointer;
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
         }
-        .google-logo-3d:hover { animation-play-state: paused; transform: scale(1.1) rotateY(45deg); }
-        .g-blue { color: #4285F4; transform: translateZ(20px); display: inline-block; }
-        .g-red { color: #EA4335; transform: translateZ(20px); display: inline-block; }
-        .g-yellow { color: #FBBC05; transform: translateZ(20px); display: inline-block; }
-        .g-green { color: #34A853; transform: translateZ(20px); display: inline-block; }
-        @keyframes rotateLogo { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #4338ca;
+        }
+
+        /* Admin Panel Styles */
+        .admin-dashboard {
+            display: none;
+        }
+        
+        .admin-section {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .admin-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            background: #f9fafb;
+            margin-bottom: 5px;
+            border-radius: 6px;
+        }
+
+        .delete-btn {
+            color: var(--danger);
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* --- FOOTER (Yangi) --- */
+        footer {
+            margin-top: auto; /* Sahifani pastga suradi */
+            background: #111827; /* To'q kulrang/fon */
+            color: white;
+            padding: 40px 5% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact-item:hover {
+            color: white;
+        }
+
+        .footer-contact-item i {
+            width: 25px;
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--text-dark);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2000;
+        }
+        .toast.show {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Overlay -->
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <!-- Intro Animation Screen -->
+    <div id="intro-screen">
+        <!-- LOGO NOMI O'ZGARTIRILDI: SECURITY WEB -->
+        <div class="intro-logo">SECURITY WEB</div>
+        <div class="intro-subtitle">Biznesingiz uchun yangi imkoniyatlar</div>
+    </div>
 
     <!-- Header -->
     <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Web Pro</a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#hero" onclick="toggleMenu()">Bosh sahifa</a></li>
-                    <li><a href="#services" onclick="toggleMenu()">Xizmatlar</a></li>
-                    <li><a href="#features" onclick="toggleMenu()">Afzalliklar</a></li>
-                    <li><a href="#contact" onclick="toggleMenu()">Aloqa</a></li>
-                    <!-- SAYT HAQIDA TUGMASI (MODAL) -->
-                    <li><a href="#" onclick="openAboutModal()"><i class="fas fa-info-circle"></i> Sayt haqida</a></li>
-                </ul>
-                <div class="mobile-menu-btn" onclick="toggleMenu()">
-                    <i class="fas fa-bars" id="menuIcon"></i>
-                </div>
-            </nav>
+        <!-- LOGO NOMI O'ZGARTIRILDI: SECURITY WEB -->
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i> SECURITY WEB
         </div>
+        <button class="admin-btn" onclick="openAdminAuth()">Admin</button>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1><span class="hero-gradient-text">Web Pro</span> <br>Zamonaviy Web Sahifa</h1>
-                    <p>Sizning biznesingiz uchun professional veb-sayt va Telegram botlarni yarataman. SEO optimizatsiyasi bilan birga.</p>
-                    <div class="hero-buttons">
-                        <a href="#services" class="btn">Narxlarni Ko'rish</a>
-                        <a href="tel:+998992048314" class="btn btn-outline">
-                            <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> Bog'lanish
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- ANIMATED SLIDER CARD -->
-                <div class="hero-image" id="heroImage">
-                    <div class="card-3d" id="card3d">
-                        <div class="slider-content" id="sliderContent">
-                            <i class="fas fa-laptop-code card-icon" id="cardIcon"></i>
-                            <h3 class="card-title" id="cardTitle">Web Sahifa</h3>
-                        </div>
-                        <span class="pause-indicator">To'xtatish uchun bosing</span>
-                    </div>
-                    <div class="floating-icon icon-1"><i class="fab fa-html5"></i></div>
-                    <div class="floating-icon icon-2"><i class="fab fa-css3-alt"></i></div>
-                    <div class="floating-icon icon-3"><i class="fab fa-js"></i></div>
-                    <div class="floating-icon icon-4"><i class="fab fa-telegram-plane"></i></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- REKLAMA & ADMIN PANEL -->
-        <div class="container">
-            <!-- Reklama Banner -->
-            <div class="ad-banner" id="adBanner">
-                <div class="ad-content">
-                    <span class="ad-tag">Reklama / Special Offer</span>
-                    <h2 class="ad-title" id="adTitle">Chegirma! 20%</h2>
-                    <p class="ad-desc" id="adDesc">Bugun buyurtma berganlar uchun Telegram bot bepul yaratiladi.</p>
-                </div>
-                <a href="#" class="ad-btn" id="adLink" target="_blank">
-                    Batafsil <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <!-- Yashirin Admin Tugmasi -->
-            <div class="toggle-admin" onclick="toggleAdminPanel()" title="Admin Panel"></div>
-            
-            <!-- Admin Panel (Yashirin) -->
-            <div class="admin-section" id="adminPanel">
-                <div class="admin-tabs">
-                    <button class="admin-tab-btn active" onclick="switchTab('ad')">Reklama</button>
-                    <button class="admin-tab-btn" onclick="switchTab('service')">Yangi Xizmat</button>
-                </div>
-
-                <!-- Reklama Bo'limi -->
-                <div id="tabAd">
-                    <h4>Reklama sozlamalari</h4>
-                    <div class="form-row">
-                        <label>Sarlavha:</label>
-                        <input type="text" id="inputAdTitle" value="Chegirma! 20%">
-                    </div>
-                    <div class="form-row">
-                        <label>Tavsif:</label>
-                        <textarea id="inputAdDesc" rows="3">Bugun buyurtma berganlar uchun Telegram bot bepul yaratiladi.</textarea>
-                    </div>
-                    <div class="form-row">
-                        <label>Havola (Link):</label>
-                        <input type="text" id="inputAdLink" value="https://t.me/samir_f4">
-                    </div>
-                    <button class="btn" onclick="saveAd()">Saqlash</button>
-                    <button class="btn btn-outline" onclick="resetAd()" style="margin-left: 10px;">Standartga qaytarish</button>
-                </div>
-
-                <!-- Yangi Xizmat Qo'shish Bo'limi -->
-                <div id="tabService" style="display: none;">
-                    <h4>Yangi xizmat qo'shish</h4>
-                    <div class="form-row">
-                        <label>Xizmat nomi:</label>
-                        <input type="text" id="newServiceTitle" placeholder="Masalan: Logo Dizayn">
-                    </div>
-                    <div class="form-row">
-                        <label>Narxi:</label>
-                        <input type="text" id="newServicePrice" placeholder="Masalan: 200 000 so'mdan">
-                    </div>
-                    <div class="form-row">
-                        <label>Ikona (Rangini tanlang):</label>
-                        <select id="newServiceIcon">
-                            <option value="fas fa-code">Kod (Code)</option>
-                            <option value="fas fa-paint-brush">Dizayn (Brush)</option>
-                            <option value="fas fa-chart-line">Marketing (Chart)</option>
-                            <option value="fas fa-server">Server (Server)</option>
-                            <option value="fas fa-mobile-alt">Mobil App (Mobile)</option>
-                            <option value="fas fa-shield-alt">Xavfsizlik (Shield)</option>
-                            <option value="fas fa-database">Ma'lumotlar (Database)</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <label>Xususiyatlar (Vergul bilan ajrating):</label>
-                        <textarea id="newServiceFeatures" rows="3" placeholder="Masalan: 3 ta variant, Tezkor yetkazib berish, Vektor format"></textarea>
-                    </div>
-                    <button class="btn" onclick="addService()">Qo'shish</button>
-                    <button class="btn btn-outline" onclick="clearServiceForm()" style="margin-left: 10px;">Tozalash</button>
-                    
-                    <h5 style="margin-top: 20px; margin-bottom: 10px; color: #374151;">Qo'shilgan xizmatlar ro'yxati:</h5>
-                    <div id="adminServiceList">
-                        <!-- JS orqali to'ldiriladi -->
-                    </div>
-                </div>
-            </div>
+    <!-- Reklama va Lenta -->
+    <div class="ad-container">
+        <div class="ad-box">
+            <!-- RASM O'ZGARTIRILDI: BIZNES MAVZUSIDAGI DOIMIY RASM -->
+            <img id="ad-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Biznes uchun yechimlar" title="Biznes rivojlanishi">
+            <div class="ad-text-overlay" id="ad-text-overlay">Biznesingizni rivojlantiring!</div>
         </div>
-
-        <!-- Services Section -->
-        <section id="services" class="services">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Xizmatlar va Narxlar</h2>
-                    <p>Sifatli va arzon dasturchilik xizmatlari.</p>
-                </div>
-
-                <div class="pricing-grid" id="pricingGrid">
-                    <!-- JS yuklaydi -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="features-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Nega Web Pro?</h2>
-                    <p>Biz sifat, tezlik va natijaga kafolat beramiz.</p>
-                </div>
-                
-                <div class="features-grid">
-                    <div class="feature-box">
-                        <i class="fas fa-search"></i>
-                        <h3>SEO Optimizatsiya</h3>
-                        <p>Saytingiz Google'da birinchi o‘rinlarda chiqadi.</p>
-                    </div>
-                    <div class="feature-box">
-                        <i class="fas fa-qrcode"></i>
-                        <h3>QR Kod</h3>
-                        <p>Har qanday sahifani QR kodga o'zgartiramiz.</p>
-                    </div>
-                    <div class="feature-box">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Responsive</h3>
-                        <p>Barcha qurilmalarda mukammal ko'rinadi.</p>
-                    </div>
-                    <div class="feature-box">
-                        <i class="fas fa-headset"></i>
-                        <h3>Qo'llab-quvvatlash</h3>
-                        <p>24/7 texnik yordam va maslahatlar.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Bog'lanish</h2>
-                    <p>Yangi loyiha boshlash uchun murojaat qiling.</p>
-                </div>
-
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Aloqa Ma'lumotlari</h3>
-                        <p style="margin-bottom: 30px; color: var(--text-light);">
-                            Xizmatlarimiz haqida batafsil ma'lumot olish uchun quyidagi manzillar orqali biz bilan bog'laning.
-                        </p>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-telegram-plane"></i></div>
-                            <div>
-                                <h4>Telegram</h4>
-                                <p><a href="https://t.me/samir_f4" target="_blank" style="color:var(--primary-color); font-weight:600;">@samir_f4</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                            <div>
-                                <h4>Telefon</h4>
-                                <p><a href="tel:+998992048314" style="color:var(--primary-color); font-weight:600;">+998 99 204 83 14</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>contact@webpro.uz</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <form id="telegramForm" onsubmit="sendTelegram(event)">
-                            <div class="form-group">
-                                <input type="text" id="name" class="form-control" placeholder="Ismingiz" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="phone" class="form-control" placeholder="Telefon raqamingiz" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" rows="4" class="form-control" placeholder="Xabaringiz..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-full">Yuborish</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- REKLAMA QABUL QILISH (FOOTER OLDI) -->
-    <section class="advertise-section">
-        <div class="container">
-            <div class="advertise-card">
-                <h3><i class="fas fa-ad"></i> O'zingizning reklamaningizni joylashtiring</h3>
-                <p style="color: #6b7280; margin-bottom: 20px;">Bizning platformamiz orqali o'zingizning brendingizni minglab foydalanuvchilarga yetkazing.</p>
-                <button class="btn" onclick="openAboutModal()">Reklama joylashtirish</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">Web <span>Pro</span></div>
-            <div class="social-links">
-                <a href="https://t.me/samir_f4" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                <!-- INSTAGRAM LINK -->
-                <a href="https://www.instagram.com/uzwebpro" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            </div>
-            <p class="copyright">&copy; 2023 Web Pro. Barcha huquqlar himoyalangan.</p>
-        </div>
-    </footer>
-
-    <!-- ABOUT MODAL (INLINE) -->
-    <div class="modal-overlay" id="aboutModal">
-        <div class="modal-content">
-            <button class="modal-close-btn" onclick="closeAboutModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="typing-container" id="typingText"></div>
-            <span class="cursor" id="cursor">|</span>
-
-            <div class="google-3d-container">
-                <div class="google-logo-3d">
-                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-                </div>
+        <div class="marquee-container">
+            <div class="marquee-content" id="marquee-text">
+                Yangi xizmatlar keldi! Telegram botlar va Web saytlar arzon narxlarda. Hoziroq buyurtma bering!
             </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- Xizmatlar -->
+    <main class="container">
+        <!-- SEO uchun H1 sarlavha -->
+        <h1 class="section-title">Biznes yechimlari va Xizmatlar</h1>
+        <div class="services-grid" id="services-grid">
+            <!-- Xizmatlar JS orqali chiqariladi -->
+        </div>
+    </main>
+
+    <!-- World Chat -->
+    <section class="container">
+        <h2 class="section-title">World Chat</h2>
+        <div class="chat-section">
+            <div class="chat-header">
+                <i class="fas fa-comments" style="color: var(--primary-color)"></i>
+                Jonli Munozara
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Xabarlar shu yerga keladi -->
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Xabar yozing...">
+                <button class="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (ALOQA VA MUALLIFLIK HUQUQI) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Murojaat va Takliflar</h4>
+                <!-- Telegram -->
+                <a href="https://t.me/samir.f4" target="_blank" class="footer-contact-item">
+                    <i class="fab fa-telegram-plane"></i> @samir.f4
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com/rogf.f6" target="_blank" class="footer-contact-item">
+                    <i class="fab fa-instagram"></i> @rogf.f6
+                </a>
+                <!-- Telefon -->
+                <a href="tel:+998992048314" class="footer-contact-item">
+                    <i class="fas fa-phone-alt"></i> +998 99 204 83 14
+                </a>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Biz Haqimizda</h4>
+                <p style="color: #d1d5db; font-size: 0.9rem; line-height: 1.6;">
+                    SECURITY WEB — Biznesingizni onlayn dunyoga olib chiqish uchun eng zamonaviy yechimlar. Sifatli xizmat va tezkor natijalar kafolati.
+                </p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2026 Barcha ma'lumot va huquqlaringiz himoyalangan.
+        </div>
+    </footer>
+
+    <!-- Registratsiya Modal -->
+    <div class="modal" id="reg-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('reg-modal')">&times;</span>
+            <h3 style="margin-bottom: 20px; color: var(--primary-color);" id="reg-service-title">Xizmatni tanlang</h3>
+            <form id="reg-form" onsubmit="handleRegistration(event)">
+                <input type="hidden" id="selected-service-name">
+                <input type="hidden" id="selected-service-price">
+                
+                <div class="form-group">
+                    <label class="form-label">Ismingiz</label>
+                    <input type="text" id="reg-name" class="form-input" required placeholder="Ismingizni kiriting">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Telefon Raqam</label>
+                    <input type="tel" id="reg-phone" class="form-input" required placeholder="90 123 45 67">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Telegram User</label>
+                    <input type="text" id="reg-telegram" class="form-input" required placeholder="@username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Izoh (Ixtiyoriy)</label>
+                    <textarea id="reg-comment" class="form-input" rows="3" placeholder="Qo'shimcha ma'lumot..."></textarea>
+                </div>
+                <div style="background: #f0fdf4; padding: 10px; border-radius: 6px; margin-bottom: 15px; color: var(--success); font-size: 0.9rem;">
+                    <i class="fas fa-check-circle"></i> Ma'lumotlar Telegram Botga yuboriladi.
+                </div>
+                <button type="submit" class="submit-btn">Buyurtma berish</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Auth Modal -->
+    <div class="modal" id="admin-auth-modal">
+        <div class="modal-content" style="max-width: 350px; text-align: center;">
+            <span class="close-modal" onclick="closeModal('admin-auth-modal')">&times;</span>
+            <h3>Admin Kirish</h3>
+            <div class="form-group" style="margin-top: 20px;">
+                <input type="password" id="admin-pass-input" class="form-input" placeholder="Parol">
+            </div>
+            <button class="submit-btn" onclick="checkAdminPass()">Kirish</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div class="modal" id="admin-panel-modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-modal" onclick="closeModal('admin-panel-modal')">&times;</span>
+            <h3 style="margin-bottom: 20px;">Admin Panel</h3>
+            
+            <!-- Xizmat Qo'shish -->
+            <div class="admin-section">
+                <h4>Yangi Xizmat Qo'shish</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                    <input type="text" id="new-service-name" class="form-input" placeholder="Nom (mas: Web Sayt)">
+                    <input type="number" id="new-service-price" class="form-input" placeholder="Narx (so'm)">
+                </div>
+                <button class="submit-btn" onclick="addNewService()" style="margin-top: 10px; padding: 8px;">Qo'shish</button>
+                
+                <h5 style="margin-top: 15px; font-size: 0.9rem;">Mavjud Xizmatlar:</h5>
+                <div id="admin-services-list" style="margin-top: 5px;">
+                    <!-- List -->
+                </div>
+            </div>
+
+            <!-- Reklama Boshqaruv -->
+            <div class="admin-section">
+                <h4>Reklama Boshqaruvi</h4>
+                <div class="form-group">
+                    <label class="form-label">Lenta Matni</label>
+                    <input type="text" id="admin-marquee-text" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Rasm URL (Yoki tugma bosib rasm yuklang - simulyatsiya)</label>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="text" id="admin-ad-img" class="form-input" placeholder="Rasm linki">
+                        <button onclick="generateRandomAdImage()" style="padding: 0 10px; border:1px solid #ddd; background:#eee; cursor:pointer;">Random</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Reklama Matni</label>
+                    <input type="text" id="admin-ad-text" class="form-input">
+                </div>
+                <button class="submit-btn" onclick="updateAdSettings()">Saqlash</button>
+            </div>
+
+            <!-- TELEGRAM BOT SOZLAMALARI (Sozlamalar hardcoded qilindi, ammo qoldirildi) -->
+            <div class="admin-section" style="display:none;"> 
+                <!-- Bu qismni yashirish mumkin, chunki kod ichiga yozib qo'yildi -->
+                <h4>Telegram Bot Sozlamalari (Avtomatik)</h4>
+                <p>Token va ID kod ichiga o'rnatilgan.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Xabar</div>
+
     <script>
-        const BOT_TOKEN = '8363658905:AAFyFe3uqbn1jcac4sJQOHnxSGtkMwAuW20';
-        const CHAT_ID = '5588598964';
+        // --- MA'LUMOTLAR (HARDCODED) ---
+        // Siz bergan Token va ID
+        const BOT_TOKEN = "8795806893:AAGyvm-hGRf_MdMkylKyTuoJetUUexs6-HM";
+        const CHAT_ID = "5588598964";
 
-        // --- 1. ABOUT MODAL LOGIC (FIXED) ---
-        function openAboutModal() {
-            const modal = document.getElementById('aboutModal');
-            const textContainer = document.getElementById('typingText');
-            const cursor = document.getElementById('cursor');
-            
-            // Modalni ko'rsatish
-            modal.classList.add('active');
-            
-            // Matnni tozalash
-            textContainer.innerHTML = '';
-            
-            // Matnni yozish funksiyasini ishga tushirish
-            typeWriterEffect(textToType);
-        }
+        // --- Ma'lumotlar Bazasi (Local Storage) ---
+        const defaultServices = [
+            { id: 1, name: "Web Sahifa", price: 899000, icon: "fa-globe" },
+            { id: 2, name: "Telegram Bot", price: 999000, icon: "fa-robot" },
+            { id: 3, name: "Logo Dizayn", price: 299000, icon: "fa-pen-nib" }
+        ];
 
-        function closeAboutModal() {
-            document.getElementById('aboutModal').classList.remove('active');
-        }
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intro animation
+            setTimeout(() => {
+                const intro = document.getElementById('intro-screen');
+                intro.style.opacity = '0';
+                intro.style.visibility = 'hidden';
+            }, 2500);
 
-        // Modal tugmasi yopish uchun (Overlay bosganda ham)
-        document.getElementById('aboutModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAboutModal();
+            // Load Services
+            if (!localStorage.getItem('services')) {
+                localStorage.setItem('services', JSON.stringify(defaultServices));
             }
+            renderServices();
+
+            // Load Chat
+            loadChat();
+
+            // Load Ad Settings
+            loadAdSettings();
         });
 
-        const textToType = `BIZ SAYTIMIZNI MUKAMMAL DEYA OLMAYMIZ
-BIZ FAQAT SIZNING BIZNESINGIZ UCHUN RIVOJ QO'SHISH HARAKATIDAMIZ
+        // --- Funksiyalar ---
 
-SIZNING BIZNESINGIZ INSTAGRAM, TELEGRAM, YOUTUBE VA BOSHQA PLATFORMALARDA HAM BOR
-ENDI BIZNESINGIZNI DUNYO FOYDALANADIGAN GOOGLE SAHIFASIGA QO'YISH VAQTI KELDI
-
-SIZ BIZDA HAMMA HIZMATLAR BOR
-ERTIBORINGIZ UCHUN RAHMAT`;
-
-        function typeWriterEffect(text) {
-            const container = document.getElementById('typingText');
-            let index = 0;
-            
-            function type() {
-                if (index < text.length) {
-                    container.innerHTML += text.charAt(index);
-                    index++;
-                    // Harf yozilish tezligi
-                    setTimeout(type, 30);
-                } else {
-                    // Yozib tugagach, kursorni yo'qolish (ixtiyoriy)
-                    document.getElementById('cursor').style.display = 'none';
-                }
-            }
-            type();
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
-        // Modal ochilganda kursorni qayta ko'rsatish
-        function resetCursor() {
-            const cursor = document.getElementById('cursor');
-            cursor.style.display = 'inline-block';
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
         }
 
-        // --- 2. SLIDER & 3D LOGIC ---
-        const slides = [
-            { title: "Web Sahifa", icon: "fas fa-laptop-code", color: "#2563eb" },
-            { title: "Telegram Bot", icon: "fab fa-telegram-plane", color: "#0088cc" },
-            { title: "SEO Optimizatsiya", icon: "fas fa-search", color: "#10b981" },
-            { title: "Mobil Dastur", icon: "fas fa-mobile-alt", color: "#f59e0b" },
-            { title: "Dizayn", icon: "fas fa-paint-brush", color: "#ec4899" }
-        ];
-        let currentSlide = 0, sliderInterval, isPaused = false;
-
-        function startSlider() {
-            const card = document.getElementById('card3d');
-            card.addEventListener('mousedown', pauseSlider);
-            card.addEventListener('touchstart', pauseSlider);
-            card.addEventListener('mouseup', resumeSlider);
-            card.addEventListener('mouseleave', resumeSlider);
-            card.addEventListener('touchend', resumeSlider);
-            sliderInterval = setInterval(() => { if(!isPaused) changeSlide(); }, 2000);
-        }
-
-        function changeSlide() {
-            const contentEl = document.getElementById('sliderContent');
-            const titleEl = document.getElementById('cardTitle');
-            const iconEl = document.getElementById('cardIcon');
-            contentEl.classList.add('fade-out');
-            setTimeout(() => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                const s = slides[currentSlide];
-                titleEl.innerText = s.title;
-                iconEl.className = `${s.icon} card-icon`;
-                iconEl.style.background = `linear-gradient(to right, ${s.color}, #06b6d4)`;
-                iconEl.style.webkitBackgroundClip = 'text'; iconEl.style.webkitTextFillColor = 'transparent';
-                contentEl.classList.remove('fade-out');
-            }, 300);
-        }
-        function pauseSlider() { isPaused = true; }
-        function resumeSlider() { isPaused = false; }
-
-        // --- 3. SERVICES LOGIC ---
-        let allServices = [
-            { id: 1, title: "Web Sahifa", price: "500 000 so'mdan", icon: "fas fa-laptop-code", features: ["SEO (Google topilishi)", "Mobil qurilmalarga mos", "Tezkor ishlash", "QR kod generatsiyasi"], isCustom: false },
-            { id: 2, title: "Telegram Bot", price: "800 000 so'mdan", icon: "fab fa-telegram-plane", features: ["Avtomatlashtirish", "To'lov tizimlari", "Admin panel", "24/7 ishlashi"], isCustom: false },
-            { id: 3, title: "Kompleks", price: "Kelishilgan", icon: "fas fa-layer-group", features: ["Sayt + Bot + Domen", "To'liq branding", "Texnik qo'llab-quvvatlash", "Bepulsiz yangilashlar"], isCustom: false }
-        ];
-
+        // --- Xizmatlar Qismi ---
         function renderServices() {
-            const grid = document.getElementById('pricingGrid');
-            const adminList = document.getElementById('adminServiceList');
-            grid.innerHTML = ''; adminList.innerHTML = '';
-            allServices.forEach(service => {
+            const services = JSON.parse(localStorage.getItem('services')) || [];
+            const grid = document.getElementById('services-grid');
+            grid.innerHTML = '';
+
+            services.forEach(service => {
                 const card = document.createElement('div');
-                card.className = 'pricing-card';
+                card.className = 'service-card';
+                card.onclick = () => openRegModal(service);
                 card.innerHTML = `
-                    <div class="pricing-icon"><i class="${service.icon}"></i></div>
-                    <h3>${service.title}</h3>
-                    <p class="price">${service.price}</p>
-                    <ul class="features-list">${service.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}</ul>
-                    <button class="btn btn-full" onclick="selectService('${service.title}')">Buyurtma berish</button>
+                    <i class="fas ${service.icon || 'fa-cubes'} service-icon"></i>
+                    <div class="service-title">${service.name}</div>
+                    <div class="service-price">${service.price.toLocaleString()} <span class="service-currency">so'm</span></div>
                 `;
                 grid.appendChild(card);
-                if (service.isCustom) {
-                    const listItem = document.createElement('div');
-                    listItem.className = 'service-list-item';
-                    listItem.innerHTML = `<span><strong>${service.title}</strong> (${service.price})</span><button class="btn btn-sm btn-danger" onclick="deleteService(${service.id})">O'chirish</button>`;
-                    adminList.appendChild(listItem);
-                }
             });
         }
 
-        function loadCustomServices() {
-            const saved = localStorage.getItem('webProCustomServices');
-            if (saved) allServices = [...allServices, ...JSON.parse(saved)];
+        // --- Registratsiya ---
+        function openRegModal(service) {
+            document.getElementById('selected-service-name').value = service.name;
+            document.getElementById('selected-service-price').value = service.price;
+            document.getElementById('reg-service-title').textContent = `${service.name} - ${service.price.toLocaleString()} so'm`;
+            document.getElementById('reg-modal').classList.add('active');
         }
 
-        function addService() {
-            const title = document.getElementById('newServiceTitle').value;
-            const price = document.getElementById('newServicePrice').value;
-            const icon = document.getElementById('newServiceIcon').value;
-            const featuresStr = document.getElementById('newServiceFeatures').value;
-            if (!title || !price || !featuresStr) return alert("Maydonlarni to'ldiring");
-            const newS = { id: Date.now(), title, price, icon, features: featuresStr.split(',').map(s=>s.trim()), isCustom: true };
-            const saved = localStorage.getItem('webProCustomServices');
-            let list = saved ? JSON.parse(saved) : [];
-            list.push(newS);
-            localStorage.setItem('webProCustomServices', JSON.stringify(list));
-            alert("Qo'shildi!"); location.reload();
+        function handleRegistration(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const phone = document.getElementById('reg-phone').value;
+            const telegram = document.getElementById('reg-telegram').value;
+            const comment = document.getElementById('reg-comment').value;
+            const serviceName = document.getElementById('selected-service-name').value;
+            const price = document.getElementById('selected-service-price').value;
+
+            // Telegram botga yuborish funksiyasi (Hardcoded ma'lumotlar bilan)
+            sendTelegramMessage(`
+                🆕 *Yangi Buyurtma!*
+                
+                🛠 *Xizmat:* ${serviceName}
+                💰 *Narx:* ${price} so'm
+                
+                👤 *Mijoz:* ${name}
+                📞 *Tel:* ${phone}
+                ✈️ *Telegram:* ${telegram}
+                📝 *Izoh:* ${comment || "Yo'q"}
+            `);
+
+            showToast("Buyurtmangiz qabul qilindi! Tez orada bog'lanamiz.");
+            closeModal('reg-modal');
+            e.target.reset();
         }
 
-        function deleteService(id) {
-            if(!confirm("O'chirasizmi?")) return;
-            let list = JSON.parse(localStorage.getItem('webProCustomServices') || '[]');
-            list = list.filter(s => s.id !== id);
-            localStorage.setItem('webProCustomServices', JSON.stringify(list));
-            location.reload();
+        // --- Chat ---
+        function loadChat() {
+            const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = '';
+            
+            messages.forEach(msg => {
+                appendMessageToUI(msg);
+            });
         }
 
-        function clearServiceForm() {
-            document.getElementById('newServiceTitle').value = '';
-            document.getElementById('newServicePrice').value = '';
-            document.getElementById('newServiceFeatures').value = '';
+        function appendMessageToUI(msg) {
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = `message ${msg.isOwn ? 'own' : 'other'}`;
+            
+            const authorSpan = document.createElement('span');
+            authorSpan.className = 'msg-author';
+            authorSpan.textContent = msg.isOwn ? 'Siz' : msg.author;
+            
+            const textSpan = document.createElement('span');
+            textSpan.textContent = msg.text;
+
+            div.appendChild(authorSpan);
+            div.appendChild(textSpan);
+            container.appendChild(div);
+            
+            // Scroll to bottom
+            container.scrollTop = container.scrollHeight;
         }
 
-        // --- 4. ADMIN PANEL LOGIC ---
-        function toggleAdminPanel() {
-            if (prompt("Admin parol (1234):") === "1234") document.getElementById('adminPanel').classList.toggle('active');
-            else alert("Noto'g'ri");
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const msg = {
+                id: Date.now(),
+                text: text,
+                author: "Foydalanuvchi",
+                isOwn: true,
+                time: new Date().toISOString()
+            };
+
+            let messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+            messages.push(msg);
+            localStorage.setItem('chatMessages', JSON.stringify(messages));
+
+            appendMessageToUI(msg);
+            input.value = '';
         }
 
-        function switchTab(name) {
-            document.getElementById('tabAd').style.display = name === 'ad' ? 'block' : 'none';
-            document.getElementById('tabService').style.display = name === 'service' ? 'block' : 'none';
-            document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+        // --- Admin Panel ---
+        function openAdminAuth() {
+            document.getElementById('admin-auth-modal').classList.add('active');
         }
 
-        function saveAd() {
-            const ad = { title: document.getElementById('inputAdTitle').value, desc: document.getElementById('inputAdDesc').value, link: document.getElementById('inputAdLink').value };
-            localStorage.setItem('webProAd', JSON.stringify(ad));
-            document.getElementById('adTitle').innerText = ad.title;
-            document.getElementById('adDesc').innerText = ad.desc;
-            document.getElementById('adLink').href = ad.link;
-            alert("Saqlandi!");
-        }
-
-        function loadAd() {
-            const saved = localStorage.getItem('webProAd');
-            if (saved) {
-                const ad = JSON.parse(saved);
-                document.getElementById('adTitle').innerText = ad.title;
-                document.getElementById('adDesc').innerText = ad.desc;
-                document.getElementById('adLink').href = ad.link;
-                document.getElementById('inputAdTitle').value = ad.title;
-                document.getElementById('inputAdDesc').value = ad.desc;
-                document.getElementById('inputAdLink').value = ad.link;
+        function checkAdminPass() {
+            const pass = document.getElementById('admin-pass-input').value;
+            if (pass === '9933') {
+                closeModal('admin-auth-modal');
+                openAdminDashboard();
+                document.getElementById('admin-pass-input').value = '';
+            } else {
+                showToast("Xato parol!");
             }
         }
 
-        function resetAd() { if(confirm("Qaytarmisiz?")) { localStorage.removeItem('webProAd'); location.reload(); } }
+        function openAdminDashboard() {
+            document.getElementById('admin-panel-modal').classList.add('active');
+            
+            const services = JSON.parse(localStorage.getItem('services')) || [];
+            const list = document.getElementById('admin-services-list');
+            list.innerHTML = '';
+            
+            services.forEach((s, index) => {
+                const item = document.createElement('div');
+                item.className = 'admin-list-item';
+                item.innerHTML = `
+                    <span>${s.name} - ${s.price}</span>
+                    <button class="delete-btn" onclick="deleteService(${index})"><i class="fas fa-trash"></i></button>
+                `;
+                list.appendChild(item);
+            });
 
-        // --- 5. NAVIGATION & FORM ---
-        let selectedService = "";
-        function selectService(name) {
-            selectedService = name;
-            document.getElementById('message').value = `Assalomu alaykum! Men "${name}" xizmatiga buyurtma bermoqchiman.`;
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('admin-marquee-text').value = document.getElementById('marquee-text').textContent.trim();
+            document.getElementById('admin-ad-img').value = document.getElementById('ad-image').src;
+            document.getElementById('admin-ad-text').value = document.getElementById('ad-text-overlay').textContent;
         }
 
-        async function sendTelegram(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const msg = document.getElementById('message').value;
-            let text = `📢 *Yangi Buyurtma!*\n\n👤 *Ismi:* ${name}\n📱 *Telefon:* ${phone}\n💬 *Xabar:* ${msg}\n`;
-            if(selectedService) text += `🛠 *Tanlangan Xizmat:* ${selectedService}\n`;
-            text += `🌐 *Manba:* Web Pro Sayti`;
-            const btn = e.target.querySelector('button');
-            const old = btn.innerText;
-            btn.innerText = "Yuborilmoqda...";
-            btn.disabled = true;
-            try {
-                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'Markdown' }) });
-                if (res.ok) { alert("Yuborildi!"); document.getElementById('telegramForm').reset(); selectedService = ""; }
-                else alert("Xatolik");
-            } catch { alert("Internet yo'q"); } finally { btn.innerText = old; btn.disabled = false; }
-        }
+        function addNewService() {
+            const name = document.getElementById('new-service-name').value;
+            const price = parseInt(document.getElementById('new-service-price').value);
 
-        function toggleMenu() {
-            const nav = document.getElementById('navLinks');
-            const overlay = document.getElementById('overlay');
-            const icon = document.getElementById('menuIcon');
-            nav.classList.toggle('active');
-            overlay.classList.toggle('active');
-            if(nav.classList.contains('active')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
-            else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
-        }
-
-        // --- 6. 3D MOUSE PARALLAX ---
-        const heroSection = document.getElementById('hero');
-        const card = document.querySelector('.card-3d');
-        const icons = document.querySelectorAll('.floating-icon');
-        let isMobile = window.innerWidth <= 768;
-
-        if (!isMobile) {
-            heroSection.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-                icons.forEach((icon, index) => {
-                    const depth = (index + 1) * 2;
-                    const xMove = (window.innerWidth / 2 - e.pageX) / depth;
-                    const yMove = (window.innerHeight / 2 - e.pageY) / depth;
-                    icon.style.transform = `translateX(${xMove}px) translateY(${yMove}px) translateZ(${50 + index * 10}px)`;
+            if (name && price) {
+                const services = JSON.parse(localStorage.getItem('services')) || [];
+                services.push({
+                    id: Date.now(),
+                    name: name,
+                    price: price,
+                    icon: "fa-star"
                 });
-            });
-            heroSection.addEventListener('mouseleave', () => {
-                card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-                icons.forEach((icon, index) => { icon.style.transform = `translateX(0) translateY(0) translateZ(${50 + index * 10}px)`; });
-            });
+                localStorage.setItem('services', JSON.stringify(services));
+                
+                document.getElementById('new-service-name').value = '';
+                document.getElementById('new-service-price').value = '';
+                
+                renderServices();
+                openAdminDashboard();
+                showToast("Xizmat qo'shildi!");
+            } else {
+                showToast("Ma'lumotlarni to'ldiring");
+            }
         }
 
-        // INIT
-        window.addEventListener('DOMContentLoaded', () => {
-            startSlider();
-            loadAd();
-            loadCustomServices();
-            renderServices();
-        });
+        function deleteService(index) {
+            if(confirm("Rostdan ham o'chirmoqchimisiz?")) {
+                const services = JSON.parse(localStorage.getItem('services')) || [];
+                services.splice(index, 1);
+                localStorage.setItem('services', JSON.stringify(services));
+                renderServices();
+                openAdminDashboard();
+                showToast("Xizmat o'chirildi");
+            }
+        }
+
+        function generateRandomAdImage() {
+            const randomId = Math.floor(Math.random() * 1000);
+            document.getElementById('admin-ad-img').value = `https://picsum.photos/seed/${randomId}/800/400.jpg`;
+        }
+
+        function updateAdSettings() {
+            const marqueeText = document.getElementById('admin-marquee-text').value;
+            const formAdImg = document.getElementById('admin-ad-img').value;
+            const adText = document.getElementById('admin-ad-text').value;
+
+            if (marqueeText) document.getElementById('marquee-text').textContent = marqueeText;
+            if (formAdImg) document.getElementById('ad-image').src = formAdImg;
+            if (adText) document.getElementById('ad-text-overlay').textContent = adText;
+
+            showToast("Reklama yangilandi!");
+        }
+
+        function saveBotSettings() {
+            // Bu funksiya endi kerak emas, chunki hardcoded, lekin xatolik bo'lmasligi uchun qoldiramiz
+            showToast("Sozlamalar avtomatik saqlangan!");
+        }
+
+        // --- Telegramga Xabar Yuborish Funksiyasi (Hardcoded) ---
+        function sendTelegramMessage(text) {
+            // LocalStorage o'rniga o'zgaruvchilardan o'qiydi
+            const token = BOT_TOKEN; 
+            const chatId = CHAT_ID;
+            
+            if (token && chatId) {
+                const url = `https://api.telegram.org/bot${token}/sendMessage`;
+                const data = {
+                    chat_id: chatId,
+                    text: text,
+                    parse_mode: 'Markdown'
+                };
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.ok) {
+                        console.error("Telegram xatolik:", data);
+                        showToast("Xatolik yuz berdi, tokenni tekshiring.");
+                    } else {
+                        console.log("Xabar yuborildi:", data);
+                    }
+                })
+                .catch(error => {
+                    console.error("Xatolik yuz berdi:", error);
+                    showToast("Internet bilan aloqa yo'q.");
+                });
+            } else {
+                console.log("Token yoki ID topilmadi.");
+            }
+        }
+
+        function loadAdSettings() {
+            const savedAd = JSON.parse(localStorage.getItem('adSettings'));
+            if (savedAd) {
+                if(savedAd.marquee) document.getElementById('marquee-text').textContent = savedAd.marquee;
+                if(savedAd.img) document.getElementById('ad-image').src = savedAd.img;
+                if(savedAd.text) document.getElementById('ad-text-overlay').textContent = savedAd.text;
+            }
+        }
+
+        const originalUpdateAd = updateAdSettings;
+        updateAdSettings = function() {
+            originalUpdateAd();
+            const settings = {
+                marquee: document.getElementById('admin-marquee-text').value,
+                img: document.getElementById('admin-ad-img').value,
+                text: document.getElementById('admin-ad-text').value
+            };
+            localStorage.setItem('adSettings', JSON.stringify(settings));
+        }
+
     </script>
 </body>
 </html>
